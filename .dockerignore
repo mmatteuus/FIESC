@@ -1,0 +1,14 @@
+.git
+.venv
+_privado
+runtime
+tmp
+output
+__pycache__
+*.pyc
+*.csv
+*.pdf
+*.docx
+.env
+.streamlit/secrets.toml
+
