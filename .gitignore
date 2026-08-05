@@ -1,0 +1,50 @@
+# Python
+.venv/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# Private and raw data
+_privado/
+data/raw/
+data/processed/
+*.csv
+!data/demo/*.csv
+*.pdf
+*.docx
+!docs/*.md
+
+# Runtime state
+runtime/
+logs/
+*.sqlite3
+*.db
+artifacts/*.tmp
+output/
+tmp/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Keep compact release artifacts only
+!artifacts/model_bundle.joblib
+!artifacts/model_metadata.json
+!artifacts/knowledge_index.json
+!artifacts/metrics.json

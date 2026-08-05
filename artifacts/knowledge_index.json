@@ -1,0 +1,801 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "bearing": "Doc1.pdf",
+    "misalignment": "Doc2.pdf",
+    "imbalance": "Doc3.pdf",
+    "belt": "Doc4.pdf",
+    "pulley": "Doc5.pdf",
+    "cocked_rotor": "Doc6.pdf",
+    "eccentric_rotor": null,
+    "fan": null,
+    "phase_loss": null,
+    "normal": null
+  },
+  "documents": {
+    "Doc1.pdf": {
+      "fault_family": "bearing",
+      "pages": 17,
+      "pages_with_ocr": 17,
+      "characters": 6607,
+      "sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea"
+    },
+    "Doc2.pdf": {
+      "fault_family": "misalignment",
+      "pages": 6,
+      "pages_with_ocr": 0,
+      "characters": 7632,
+      "sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153"
+    },
+    "Doc3.pdf": {
+      "fault_family": "imbalance",
+      "pages": 10,
+      "pages_with_ocr": 0,
+      "characters": 5946,
+      "sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8"
+    },
+    "Doc4.pdf": {
+      "fault_family": "belt",
+      "pages": 9,
+      "pages_with_ocr": 0,
+      "characters": 6538,
+      "sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2"
+    },
+    "Doc5.pdf": {
+      "fault_family": "pulley",
+      "pages": 10,
+      "pages_with_ocr": 0,
+      "characters": 6647,
+      "sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c"
+    },
+    "Doc6.pdf": {
+      "fault_family": "cocked_rotor",
+      "pages": 10,
+      "pages_with_ocr": 0,
+      "characters": 6587,
+      "sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9"
+    }
+  },
+  "chunks": [
+    {
+      "citation_id": "DOC1-P001-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 1,
+      "section": "Procedimento para Diagnóstico e Correção de",
+      "text": "Procedimento para Diagnóstico e Correção de\nProblemas em Rolamentos\n1. Objetivo\nEste documento estabelece o procedimento para identificação, diagnóstico, correção\ne validação de falhas em rolamentos utilizados em máquinas rotativas.\nO objetivo é detectar precocemente defeitos mecânicos, evitar falhas catastróficas,\nreduzir paradas não programadas e aumentar a confiabilidade operacional do\nequipamento.\n2. Introdução\nOs rolamentos são componentes responsáveis por suportar cargas radiais e axiais,\npermitindo a rotação com baixo atrito entre elementos mecânicos.\nSão considerados componentes críticos em:\ne Motores elétricos;\ne Bombas;\ne Ventiladores;\ne Compressores;\ne Redutores;\ne Exaustores;\ne Transportadores;\ne Máquinas rotativas em geral.\nGrande parte das falhas mecânicas em equipamentos rotativos está associada direta\nou indiretamente aos rolamentos.\n3. Componentes do Rolamento\nUm",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P001-C02",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 1,
+      "section": "Procedimento para Diagnóstico e Correção de",
+      "text": "ecânicas em equipamentos rotativos está associada direta\nou indiretamente aos rolamentos.\n3. Componentes do Rolamento\nUm rolamento típico é composto por:\ne Anel externo (Outer Race);\ne Anel interno (Inner Race);\ne Elementos rolantes (esferas ou rolos);\ne Gaiola (Cage);\ne Sistema de vedação;\ne Lubrificante.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P002-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 2,
+      "section": "4. Principais Modos de Falha",
+      "text": "4. Principais Modos de Falha\n4.1 Defeito na Pista Externa (Outer Race Fault)\nOcorre quando existe dano localizado na pista externa.\nCausas\ne Fadiga;\n* Contaminação;\ne Lubrificação inadequada;\ne Sobrecarga.\n4.2 Defeito na Pista Interna (Inner Race Fault)\nOcorre quando existe dano localizado na pista interna.\nCausas\n© Sobrecarga;\n* Montagem inadequada;\ne Fadiga do material.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P003-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 3,
+      "section": "4.3 Defeito nos Elementos Rolantes (Ball/Roller Fault)",
+      "text": "4.3 Defeito nos Elementos Rolantes (Ball/Roller Fault)\nOcorre quando esferas ou rolos apresentam desgaste ou trincas.\nCausas\ne Contaminação;\ne Lubrificação inadequada;\ne Fadiga.\n4.4 Defeito na Gaiola (Cage Fault)\nAcontece quando a estrutura que mantém os elementos rolantes espaçados sofre\ndesgaste ou ruptura.\nConsequências\ne Vibração irregular;\ne Ruído excessivo;\ne Falha acelerada.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P004-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 4,
+      "section": "4.5 Lubrificação Deficiente",
+      "text": "4.5 Lubrificação Deficiente\nUma das causas mais comuns de falha.\nProblemas típicos\ne Falta de graxa;\ne Excesso de graxa;\ne Lubrificante inadequado;\ne Contaminação.\n5. Sintomas Comuns\nFalhas em rolamentos normalmente apresentam:\ne Vibração elevada;\ne Ruído crescente;\n* Aquecimento;\ne Aumento do consumo de energia;\ne Perda de eficiência;\ne Vibração em altas frequências;\ne Desgaste acelerado de componentes adjacentes.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P005-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 5,
+      "section": "6. Ferramentas Necessárias",
+      "text": "6. Ferramentas Necessárias\n* Medidor de vibração;\ne Acelerémetros;\ne Coletor de dados;\ne Analisador FFT;\ne Termômetro infravermelho;\ne Estetoscópio mecânico;\ne Tacômetro;\ne Extrator de rolamentos;\ne Ferramentas mecânicas;\ne EPIs adequados.\n7. Segurança\nAntes da intervenção:\n1. Desligar o equipamento.\n2. Aplicar bloqueio e etiquetagem.\n3. Confirmar ausência de energia.\n4. Aguardar parada completa.\n5. Utilizar EPIs adequados.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P006-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 6,
+      "section": "8. Inspeção Visual",
+      "text": "8. Inspeção Visual\nVerificar:\n* Vazamento de graxa;\ne Corrosão;\ne Vedação danificada;\ne Contaminação;\ne Desgaste aparente;\ne Descoloração por temperatura.\nRegistrar todas as anomalias.\n9. Monitoramento de Temperatura\nMedir a temperatura dos mancais.\nComparar com:\ne Histórico do equipamento;\n* Equipamentos similares;\ne Valores de referência do fabricante.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P007-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 7,
+      "section": "Sintomas",
+      "text": "Sintomas\nTemperatura elevada pode indicar:\ne Falta de lubrificação;\ne Sobrecarga;\ne Falha interna.\n10. Diagnóstico por Vibração\nRealizar medições:\ne Horizontal;\ne Vertical;\ne Axial.\nRegistrar:\ne RMS;\ne Pico;\ne FFT;\ne Envelope (quando disponível).",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P008-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 8,
+      "section": "11. Frequências Características dos Rolamentos",
+      "text": "11. Frequências Características dos Rolamentos\nCada rolamento possui frequências específicas associadas aos seus componentes.\nAs principais são:\nBPFO\nBall Pass Frequency Outer Race\nRelacionada à pista externa.\nBPFI\nBall Pass Frequency Inner Race\nRelacionada à pista interna.\nBSF\nBall Spin Frequency\nRelacionada aos elementos rolantes.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P009-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 9,
+      "section": "FTF",
+      "text": "FTF\nFundamental Train Frequency\nRelacionada à gaiola.\n12. Diagnóstico de Defeito na Pista Externa\nCaracterísticas\n© Pico em BPFO;\ne Harmônicos de BPFO;\ne Aumento gradual da vibração.\nSintomas\ne Ruído periódico;\ne Vibração localizada;\n* Aquecimento.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P010-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 10,
+      "section": "13. Diagnóstico de Defeito na Pista Interna",
+      "text": "13. Diagnóstico de Defeito na Pista Interna\nCaracterísticas\ne Pico em BPFI;\ne Harmônicos;\ne Bandas laterais associadas à RPM.\nSintomas\ne Vibração crescente;\ne Ruído mais intenso sob carga.\n14. Diagnóstico de Defeito nos Elementos Rolantes\nCaracterísticas\ne Pico em BSF;\ne Harmônicos;\ne Vibração irregular.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P011-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 11,
+      "section": "Sintomas",
+      "text": "Sintomas\ne Ruído metálico;\ne Vibração variável.\n15. Diagnóstico de Defeito na Gaiola\nCaracterísticas\ne Picoem FTF;\ne Frequências de baixa ordem;\n¢ Instabilidade vibracional.\nSintomas\ne Ruído irregular;\n* Vibração intermitente.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P012-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 12,
+      "section": "16. Diagnóstico por Envelope",
+      "text": "16. Diagnóstico por Envelope\nQuando disponível, utilizar análise de envelope.\nBenefícios:\ne Maior sensibilidade;\ne Detecção precoce;\n© Identificação precisa da região danificada.\n17. Inspeção Mecânica\nApós desmontagem verificar:\ne Marcas de desgaste;\ne Trincas;\ne Pitting;\ne Corrosão;\ne Descoloração térmica;\ne Falhas na gaiola;\ne Contaminação.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P013-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 13,
+      "section": "18. Avaliação da Lubrificação",
+      "text": "18. Avaliação da Lubrificação\nVerificar:\ne Quantidade;\ne Cor;\ne Contaminação;\ne Viscosidade;\ne Presença de partículas.\n19. Correção da Falha\nCaso 1 — Falta de Lubrificação\nProcedimento:\n1. Limpar o sistema.\n2. Aplicar lubrificante correto.\n3. Ajustar plano de relubrificação.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P014-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 14,
+      "section": "Caso 2 — Contaminação",
+      "text": "Caso 2 — Contaminação\nProcedimento:\n1. Limpar alojamento.\n2. Substituir vedações.\n3. Trocar lubrificante.\nCaso 3 — Rolamento Danificado\nProcedimento:\n1. Remover o rolamento.\n2. Inspecionar eixo e alojamento.\n3. Instalar novo rolamento.\n4. Aplicar lubrificação adequada.\n5. Validar montagem.\nCaso 4 — Falha de Alinhamento\nProcedimento:\n1. Corrigir alinhamento.\n2. Verificar cargas.\n3. Validar funcionamento.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P015-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 15,
+      "section": "20. Instalação do Novo Rolamento",
+      "text": "20. Instalação do Novo Rolamento\nDurante a instalação:\ne Não aplicar impacto direto;\ne Utilizar ferramentas adequadas;\ne Respeitar interferências especificadas;\n* Garantir limpeza absoluta.\n21. Validação Final\nApós a correção:\n1. Operar o equipamento.\n2. Medir vibração.\n3. Medir temperatura.\n4. Avaliar ruído.\n5. Comparar com valores anteriores.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P016-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 16,
+      "section": "22. Critérios de Aceitação",
+      "text": "22. Critérios de Aceitação\nO rolamento é considerado apto quando:\ne Vibração reduzida;\ne Temperatura normal;\ne Ausência de ruídos anormais;\ne Lubrificação adequada;\ne Operação estável.\n23. Registro da Intervenção\nRegistrar:\ne Equipamento;\n* Tipo de rolamento;\ne Fabricante;\ne Data;\ne Vibração inicial;\ne Vibração final;\ne Temperatura inicial;\ne Temperatura final;\ne Lubrificante utilizado;\ne Componentes substituídos;\ne Responsável técnico.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC1-P017-C01",
+      "fault_family": "bearing",
+      "document": "Doc1.pdf",
+      "page": 17,
+      "section": "24. Recomendações Preventivas",
+      "text": "24. Recomendações Preventivas\n* Monitoramento periódico de vibração;\ne Controle de lubrificação;\n* Controle de contaminação;\ne Monitoramento térmico;\ne Inspeções programadas;\ne Alinhamento adequado;\ne Controle de cargas.\n25. Indicadores para Monitoramento Preditivo\nAcompanhar:\ne RMS global;\ne Kurtosis;\ne Crest Factor;\ne Temperatura;\ne Envelope;\ne BPFO;\ne BPFI;\ne BSF;\ne FTF;\ne Tendência histórica.",
+      "source_sha256": "b3a04698d02d86f741e3dcfd21d210f12356f0c49d57a67e246338f8e748d8ea",
+      "extraction": "ocr_tesseract"
+    },
+    {
+      "citation_id": "DOC2-P001-C01",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 1,
+      "section": "Procedimento para Correção de",
+      "text": "Procedimento para Correção de\nDesalinhamento em Motor Elétrico\n1. Objetivo\nEste documento descreve o procedimento recomendado para identificar, corrigir e\nvalidar um problema de desalinhamento em um conjunto motor elétrico acoplado a uma\ncarga rotativa. O objetivo é reduzir vibração, esforço mecânico nos mancais, desgaste\nprematuro do acoplamento e perda de eficiência operacional.\n2. Descrição do Problema\nO desalinhamento ocorre quando o eixo do motor e o eixo da máquina acionada não\nestão corretamente alinhados. Mesmo pequenos desvios podem gerar aumento de\nvibração, aquecimento, ruído, desgaste de rolamentos, falhas no acoplamento e redução\nda vida útil do sistema.\nOs principais tipos de desalinhamento são:\n2.1 Desalinhamento Paralelo\nOcorre quando os eixos estão paralelos, mas deslocados entre si.\n2.2 Desalinhamento Angular\nOcorre quando os eixos se encontram em ângulo, ou seja, as",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P001-C02",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 1,
+      "section": "Procedimento para Correção de",
+      "text": "aralelos, mas deslocados entre si.\n2.2 Desalinhamento Angular\nOcorre quando os eixos se encontram em ângulo, ou seja, as linhas de centro não são\ncolineares.\n2.3 Desalinhamento Combinado\nÉ a condição mais comum, quando existe simultaneamente desalinhamento paralelo e\nangular.\n3. Sintomas Comuns\nUm motor desalinhado pode apresentar:\n•\nVibração elevada;\n•\nAumento de temperatura nos mancais;\n•\nRuído anormal;\n•\nDesgaste irregular do acoplamento;\n•\nFolga excessiva;",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P002-C01",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 2,
+      "section": "•",
+      "text": "•\nCorrente elétrica acima do normal;\n•\nQuebra prematura de rolamentos;\n•\nAfrouxamento de parafusos de fixação;\n•\nRedução da eficiência do conjunto.\n4. Ferramentas e Instrumentos Necessários\nPara realizar a correção, recomenda-se utilizar:\n•\nRelógio comparador ou alinhador a laser;\n•\nChaves adequadas para os parafusos de fixação;\n•\nCalços metálicos calibrados;\n•\nRégua metálica ou escala de precisão;\n•\nTorquímetro;\n•\nMedidor de vibração ou acelerômetro;\n•\nTermômetro infravermelho ou câmera térmica;\n•\nEPIs adequados;\n•\nPlanilha ou formulário de registro das medições.\n5. Procedimento de Segurança\nAntes de iniciar qualquer intervenção:\n1. Desligar o motor elétrico.\n2. Bloquear e etiquetar a fonte de energia.\n3. Confirmar ausência de tensão.\n4. Aguardar a parada completa das partes girantes.\n5. Garantir que não exista partida automática.\n6. Utilizar os EPIs adequados.\n7. Verificar se a área",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P002-C02",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 2,
+      "section": "•",
+      "text": "as partes girantes.\n5. Garantir que não exista partida automática.\n6. Utilizar os EPIs adequados.\n7. Verificar se a área está limpa e segura para trabalho.\n6. Diagnóstico Inicial\n6.1 Inspeção Visual\nVerificar:\n•\nEstado do acoplamento;\n•\nAperto dos parafusos;\n•\nPresença de folgas;\n•\nCondição da base;\n•\nTrincas ou deformações;",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P003-C01",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 3,
+      "section": "•",
+      "text": "•\nCalços oxidados, dobrados ou mal posicionados;\n•\nExcesso de sujeira na base;\n•\nDesgaste nos rolamentos;\n•\nDeslocamento aparente entre motor e carga.\n6.2 Medição de Vibração\nColetar vibração nos mancais do motor e da máquina acionada, preferencialmente nas\ndireções:\n•\nHorizontal;\n•\nVertical;\n•\nAxial.\nEm casos de desalinhamento, é comum observar aumento de vibração principalmente\nem componentes relacionadas à rotação do eixo, como 1x RPM e 2x RPM.\n6.3 Verificação de Temperatura\nMedir a temperatura dos mancais e comparar com uma condição normal de operação.\nTemperaturas elevadas podem indicar esforço mecânico causado pelo desalinhamento.\n7. Preparação para o Alinhamento\nAntes de alinhar:\n1. Limpar a base do motor.\n2. Remover calços danificados.\n3. Verificar se o motor está corretamente apoiado.\n4. Conferir se não há pé manco.\n5. Verificar folgas no acoplamento.\n6. Confirmar que os eixos",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P003-C02",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 3,
+      "section": "•",
+      "text": "está corretamente apoiado.\n4. Conferir se não há pé manco.\n5. Verificar folgas no acoplamento.\n6. Confirmar que os eixos podem girar livremente.\n7. Garantir que a máquina acionada esteja fixa e nivelada.\n8. Verificação de Pé Manco\nO pé manco ocorre quando um dos apoios do motor não encosta corretamente na base.\nIsso causa deformação da carcaça ao apertar os parafusos.\nProcedimento:\n1. Afrouxar todos os parafusos de fixação do motor.\n2. Apertar três pés e deixar um livre.\n3. Medir a folga sob o pé livre.\n4. Inserir calço adequado, se necessário.",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P004-C01",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 4,
+      "section": "5. Repetir o processo para os quatro pés.",
+      "text": "5. Repetir o processo para os quatro pés.\n6. Garantir que todos os pés estejam apoiados corretamente antes do alinhamento\nfinal.\n9. Correção do Desalinhamento\n9.1 Correção Vertical\nA correção vertical é feita adicionando ou removendo calços sob os pés do motor.\nPassos:\n1. Medir o desalinhamento vertical.\n2. Calcular a quantidade de calço necessária.\n3. Afrouxar os parafusos do motor.\n4. Inserir ou remover calços calibrados.\n5. Reapertar parcialmente os parafusos.\n6. Repetir a medição.\n7. Ajustar até atingir a tolerância desejada.\n9.2 Correção Horizontal\nA correção horizontal é feita deslocando lateralmente o motor.\nPassos:\n1. Afrouxar levemente os parafusos de fixação.\n2. Utilizar parafusos de ajuste ou ferramenta adequada para mover o motor.\n3. Realizar pequenos deslocamentos.\n4. Medir novamente o alinhamento.\n5. Repetir até atingir a condição aceitável.\n6. Apertar os parafusos com",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P004-C02",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 4,
+      "section": "5. Repetir o processo para os quatro pés.",
+      "text": "eslocamentos.\n4. Medir novamente o alinhamento.\n5. Repetir até atingir a condição aceitável.\n6. Apertar os parafusos com torque adequado.\n10. Cuidados Durante o Alinhamento\nDurante o procedimento:\n•\nNão utilizar calços improvisados;\n•\nNão empilhar quantidade excessiva de calços;\n•\nEvitar calços sujos, amassados ou oxidados;\n•\nNão forçar o acoplamento para compensar desalinhamento;\n•\nNão apertar totalmente os parafusos antes da medição final;\n•\nSempre verificar se o aperto dos parafusos alterou o alinhamento;\n•\nRealizar medições repetidas para confirmar estabilidade.",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P005-C01",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 5,
+      "section": "11. Verificação Final",
+      "text": "11. Verificação Final\nApós o alinhamento:\n1. Apertar todos os parafusos com torque adequado.\n2. Girar manualmente o eixo, se possível.\n3. Confirmar que não há interferência mecânica.\n4. Reinstalar proteções do acoplamento.\n5. Liberar o sistema para teste.\n6. Ligar o motor em vazio ou com baixa carga, quando possível.\n7. Monitorar vibração, ruído, corrente e temperatura.\n8. Comparar os valores com os dados obtidos antes da correção.\n12. Critérios de Aceitação\nO alinhamento pode ser considerado satisfatório quando:\n•\nA vibração reduzir em relação à condição inicial;\n•\nNão houver ruído anormal;\n•\nA temperatura dos mancais permanecer estável;\n•\nO motor operar sem oscilações excessivas;\n•\nO acoplamento trabalhar sem esforço aparente;\n•\nAs medições estiverem dentro da tolerância definida pelo fabricante ou pelo\nprocedimento interno.\n13. Registro do Serviço\nRegistrar as seguintes",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P005-C02",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 5,
+      "section": "11. Verificação Final",
+      "text": "ntro da tolerância definida pelo fabricante ou pelo\nprocedimento interno.\n13. Registro do Serviço\nRegistrar as seguintes informações:\n•\nData da intervenção;\n•\nIdentificação do motor;\n•\nRotação de operação;\n•\nTipo de acoplamento;\n•\nCondição inicial de vibração;\n•\nCondição final de vibração;\n•\nValores de desalinhamento encontrados;\n•\nQuantidade de calços adicionados ou removidos;\n•\nTemperatura antes e depois;\n•\nObservações sobre ruído ou comportamento anormal;\n•\nNome do responsável pela intervenção.",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P006-C01",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 6,
+      "section": "14. Possíveis Causas do Desalinhamento",
+      "text": "14. Possíveis Causas do Desalinhamento\nO desalinhamento pode ser causado por:\n•\nInstalação inadequada;\n•\nBase deformada;\n•\nPé manco;\n•\nReaperto incorreto dos parafusos;\n•\nDilatação térmica;\n•\nVibração excessiva;\n•\nAfrouxamento da fixação;\n•\nSubstituição incorreta do motor;\n•\nDesgaste do acoplamento;\n•\nImpactos mecânicos;\n•\nFalha estrutural na base.\n15. Recomendações Preventivas\nPara evitar reincidência:\n•\nVerificar alinhamento após manutenção;\n•\nInspecionar periodicamente o acoplamento;\n•\nMonitorar vibração em rotina preditiva;\n•\nRegistrar tendência de temperatura;\n•\nConferir torque dos parafusos;\n•\nEvitar partida com base solta;\n•\nUtilizar calços adequados;\n•\nCorrigir pé manco antes do alinhamento;\n•\nReavaliar alinhamento após aquecimento do sistema, se houver dilatação\nsignificativa.\n16. Conclusão\nA correção do desalinhamento em motores elétricos exige inspeção cuidadosa,\nmedições",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC2-P006-C02",
+      "fault_family": "misalignment",
+      "document": "Doc2.pdf",
+      "page": 6,
+      "section": "14. Possíveis Causas do Desalinhamento",
+      "text": "atação\nsignificativa.\n16. Conclusão\nA correção do desalinhamento em motores elétricos exige inspeção cuidadosa,\nmedições confiáveis e ajustes progressivos. O procedimento deve considerar tanto o\nalinhamento vertical quanto o horizontal, além da verificação de pé manco e das\ncondições da base.\nApós a correção, a redução da vibração, da temperatura e do ruído indica que o conjunto\nvoltou a operar em uma condição mecânica mais adequada. O acompanhamento\nperiódico é essencial para garantir confiabilidade, aumentar a vida útil dos componentes\ne evitar falhas prematuras.",
+      "source_sha256": "111b036ca63b74abd42ebc640219053ac8bf8db3181d808823190673ddd65153",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P001-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 1,
+      "section": "Procedimento para Correção de",
+      "text": "Procedimento para Correção de\nDesbalanceamento em Máquinas\nRotativas\n1. Objetivo\nEste documento descreve o procedimento para identificação, análise, correção e\nvalidação de problemas de desbalanceamento em máquinas rotativas, incluindo motores\nelétricos, ventiladores, rotores, polias, acoplamentos, bombas e equipamentos similares.\nO objetivo é reduzir vibrações excessivas, aumentar a confiabilidade operacional,\nminimizar esforços mecânicos e prolongar a vida útil dos componentes rotativos.\n2. Conceitos Fundamentais\nO desbalanceamento ocorre quando o centro de massa do rotor não coincide com seu\neixo de rotação.\nDurante a operação, essa diferença gera uma força centrífuga que aumenta\nproporcionalmente à velocidade de rotação.\nQuanto maior a rotação, maior será a vibração causada pelo desbalanceamento.\nA força centrífuga pode ser representada por:\nF = m × r × ω²\nOnde:\n•\nF = força",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P001-C02",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 1,
+      "section": "Procedimento para Correção de",
+      "text": "a vibração causada pelo desbalanceamento.\nA força centrífuga pode ser representada por:\nF = m × r × ω²\nOnde:\n•\nF = força centrífuga\n•\nm = massa desbalanceada\n•\nr = distância da massa ao centro de rotação\n•\nω = velocidade angular\n3. Principais Sintomas\nEquipamentos desbalanceados normalmente apresentam:\n•\nVibração elevada em direção radial;\n•\nAumento de ruído;\n•\nDesgaste acelerado de rolamentos;",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P002-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 2,
+      "section": "•",
+      "text": "•\nAfrouxamento de parafusos;\n•\nFadiga estrutural;\n•\nTrincas em suportes;\n•\nRedução da vida útil do equipamento;\n•\nAumento do consumo energético;\n•\nOscilação excessiva durante a partida.\n4. Causas Comuns\n4.1 Acúmulo de Material\nExemplos:\n•\nPoeira;\n•\nGraxa;\n•\nLama;\n•\nResíduos de processo;\n•\nIncrustações.\nMuito comum em ventiladores e exaustores.\n4.2 Desgaste Mecânico\nExemplos:\n•\nErosão;\n•\nCorrosão;\n•\nDesgaste de pás;\n•\nDesgaste de rotores.\n4.3 Falhas de Fabricação\nExemplos:\n•\nFundição irregular;\n•\nUsinagem inadequada;\n•\nErros dimensionais.\n4.4 Reparos Inadequados",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P003-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 3,
+      "section": "Exemplos:",
+      "text": "Exemplos:\n•\nSoldas localizadas;\n•\nTroca de componentes sem rebalanceamento;\n•\nAdição de massas sem controle.\n4.5 Danos Mecânicos\nExemplos:\n•\nImpactos;\n•\nQuebra parcial de pás;\n•\nPerda de contrapesos.\n5. Ferramentas Necessárias\nRecomenda-se utilizar:\n•\nMedidor de vibração;\n•\nAcelerômetros;\n•\nTacômetro;\n•\nColetor de dados de vibração;\n•\nAnalisador espectral FFT;\n•\nKit de massas de balanceamento;\n•\nChaves e ferramentas mecânicas;\n•\nBalança de precisão;\n•\nRelógio comparador;\n•\nEquipamentos de segurança.\n6. Segurança\nAntes da intervenção:\n1. Desligar o equipamento.\n2. Aplicar bloqueio e etiquetagem.\n3. Confirmar ausência de energia.\n4. Aguardar parada completa.\n5. Utilizar EPIs adequados.\n6. Isolar a área de trabalho.",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P004-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 4,
+      "section": "7. Diagnóstico Inicial",
+      "text": "7. Diagnóstico Inicial\n7.1 Inspeção Visual\nVerificar:\n•\nSujeira acumulada;\n•\nPás danificadas;\n•\nContrapesos soltos;\n•\nTrincas;\n•\nDesgaste excessivo;\n•\nDeformações;\n•\nFixações frouxas.\n7.2 Medição de Vibração\nColetar dados nas direções:\n•\nHorizontal;\n•\nVertical;\n•\nAxial.\nRegistrar:\n•\nRMS;\n•\nPico;\n•\nEspectro de frequência.\n7.3 Análise Espectral\nO desbalanceamento normalmente produz:\nCaracterística principal\nPico dominante em:\n1 × RPM\nCom:\n•\nbaixa presença de harmônicos;\n•\npredominância radial;\n•\ncomportamento estável.",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P005-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 5,
+      "section": "Exemplo:",
+      "text": "Exemplo:\nMotor operando a 1800 RPM:\n1800 / 60 = 30 Hz\nPico predominante próximo de 30 Hz.\n8. Confirmação do Desbalanceamento\nIndícios típicos:\nSintoma\nPresença\nPico dominante em 1x RPM Sim\nVibração radial elevada\nSim\nVibração axial baixa\nSim\nHarmônicos reduzidos\nSim\nFase estável\nSim\nCaso existam múltiplos harmônicos ou forte componente axial, avaliar também:\n•\ndesalinhamento;\n•\nfolga mecânica;\n•\ndefeitos em rolamentos.\n9. Limpeza do Rotor\nAntes de qualquer correção:\n1. Remover sujeira.\n2. Limpar pás.\n3. Remover incrustações.\n4. Inspecionar visualmente novamente.\nMuitas vezes o problema é eliminado apenas com a limpeza.\n10. Balanceamento Estático\nAplicável para:",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P006-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 6,
+      "section": "•",
+      "text": "•\nrotores curtos;\n•\nbaixas rotações.\nProcedimento:\n1. Remover o rotor.\n2. Apoiar em mancais de baixa fricção.\n3. Permitir rotação livre.\n4. Identificar o lado que sempre se posiciona para baixo.\n5. Adicionar massa oposta ou remover massa da região pesada.\n6. Repetir até eliminar a tendência de giro.\n11. Balanceamento Dinâmico\nAplicável para:\n•\nrotores longos;\n•\nmédias e altas rotações.\n11.1 Medição Inicial\nRegistrar:\n•\namplitude inicial;\n•\nfase inicial;\n•\nvelocidade de rotação.\nExemplo:\nAmplitude inicial:\n8 mm/s RMS\nFase:\n120°\n11.2 Aplicação da Massa de Teste\nAdicionar massa conhecida.\nExemplo:",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P007-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 7,
+      "section": "20 g",
+      "text": "20 g\nPosição:\n0°\n11.3 Nova Medição\nRegistrar:\n•\nnova amplitude;\n•\nnova fase.\nExemplo:\nAmplitude:\n5 mm/s RMS\nFase:\n180°\n11.4 Cálculo da Correção\nUtilizar método vetorial ou software de balanceamento.\nDeterminar:\n•\nmassa corretiva;\n•\nposição angular.\nExemplo:\n15 g em 230°.\n11.5 Aplicação da Correção\nA correção pode ocorrer por:\nAdição de Massa",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P008-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 8,
+      "section": "•",
+      "text": "•\nParafusos;\n•\nContrapesos;\n•\nSoldagem controlada.\nRemoção de Massa\n•\nFuração;\n•\nFresamento;\n•\nUsinagem.\n11.6 Nova Validação\nExecutar nova coleta.\nConfirmar redução da vibração.\n12. Critérios de Aceitação\nO balanceamento é considerado satisfatório quando:\n•\nVibração reduz significativamente;\n•\nNão existem picos excessivos em 1x RPM;\n•\nEquipamento opera suavemente;\n•\nTemperaturas permanecem normais;\n•\nNão há ruídos anormais.\n13. Verificações Complementares\nMesmo após o balanceamento verificar:\n•\nAlinhamento do conjunto;\n•\nCondição dos rolamentos;\n•\nRigidez da base;\n•\nFixação dos mancais;\n•\nIntegridade estrutural.\nUm rotor perfeitamente balanceado ainda pode vibrar devido a outras falhas.",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P009-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 9,
+      "section": "14. Registro do Serviço",
+      "text": "14. Registro do Serviço\nRegistrar:\n•\nData;\n•\nEquipamento;\n•\nRotação;\n•\nVibração inicial;\n•\nVibração final;\n•\nMassa aplicada;\n•\nPosição angular;\n•\nTemperaturas;\n•\nObservações;\n•\nResponsável técnico.\n15. Monitoramento Pós-Correção\nApós o balanceamento:\nPrimeira verificação\n24 horas de operação.\nSegunda verificação\n1 semana.\nTerceira verificação\n30 dias.\nMonitorar:\n•\nVibração;\n•\nTemperatura;\n•\nRuído;\n•\nConsumo de corrente.\n16. Boas Práticas Preventivas\n•\nLimpeza periódica do rotor;\n•\nInspeções visuais regulares;",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC3-P010-C01",
+      "fault_family": "imbalance",
+      "document": "Doc3.pdf",
+      "page": 10,
+      "section": "•",
+      "text": "•\nMonitoramento de vibração;\n•\nControle de corrosão;\n•\nVerificação de contrapesos;\n•\nBalanceamento após reparos;\n•\nRegistro histórico das medições.",
+      "source_sha256": "13d15dd038b506dcc0ad4ce379fb017d7b9fed77a3034b4c818383e0ed5388d8",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P001-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 1,
+      "section": "Procedimento para Diagnóstico e",
+      "text": "Procedimento para Diagnóstico e\nCorreção de Problemas em Sistemas de\nTransmissão por Correias\n1. Objetivo\nEste documento estabelece o procedimento para identificar, diagnosticar, corrigir e\nvalidar falhas em sistemas de transmissão por correias utilizados em motores elétricos,\nventiladores, bombas, compressores, redutores e demais máquinas rotativas.\nO objetivo é garantir a transmissão eficiente de potência, reduzir vibrações, evitar\ndesgaste prematuro dos componentes e aumentar a confiabilidade operacional do\nconjunto.\n2. Introdução\nA transmissão por correias é amplamente utilizada devido à simplicidade construtiva,\nbaixo custo e capacidade de absorver choques mecânicos.\nEntretanto, problemas como tensão inadequada, desgaste, desalinhamento ou defeitos\nnas polias podem provocar:\n•\nPerda de rendimento;\n•\nVibração excessiva;\n•\nAquecimento;\n•\nRuídos anormais;\n•\nEscorregamento;\n•\nRedução",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P001-C02",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 1,
+      "section": "Procedimento para Diagnóstico e",
+      "text": "dem provocar:\n•\nPerda de rendimento;\n•\nVibração excessiva;\n•\nAquecimento;\n•\nRuídos anormais;\n•\nEscorregamento;\n•\nRedução da vida útil da correia;\n•\nSobrecarga dos mancais;\n•\nFalhas prematuras do equipamento.\n3. Componentes do Sistema\nUm sistema típico de transmissão por correias é composto por:\n•\nMotor elétrico;\n•\nPolia motora;\n•\nCorreia;\n•\nPolia movida;\n•\nEstrutura de fixação;",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P002-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 2,
+      "section": "•",
+      "text": "•\nSistema de ajuste de tensão;\n•\nMancais e rolamentos.\n4. Principais Tipos de Falhas\n4.1 Correia Frouxa\nOcorre quando a tensão é insuficiente para transmitir adequadamente o torque.\nConsequências\n•\nEscorregamento;\n•\nAquecimento;\n•\nRuído;\n•\nPerda de potência;\n•\nDesgaste acelerado.\n4.2 Correia Excessivamente Tensionada\nOcorre quando a tensão aplicada excede o valor recomendado.\nConsequências\n•\nSobrecarga nos rolamentos;\n•\nAumento do consumo de energia;\n•\nDesgaste prematuro;\n•\nDeformação dos eixos.\n4.3 Desgaste Natural\nDecorrente do envelhecimento e operação contínua.\nCaracterísticas\n•\nRachaduras;\n•\nRessecamento;\n•\nPerda de elasticidade;\n•\nDesgaste lateral.",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P003-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 3,
+      "section": "4.4 Desalinhamento das Polias",
+      "text": "4.4 Desalinhamento das Polias\nOcorre quando as polias não estão no mesmo plano ou apresentam desalinhamento\nangular.\nConsequências\n•\nDesgaste irregular;\n•\nVibração;\n•\nRuído;\n•\nRedução da vida útil.\n4.5 Polias Danificadas\nExemplos:\n•\nRanhuras desgastadas;\n•\nTrincas;\n•\nEmpenamento;\n•\nCorrosão.\n4.6 Contaminação\nExemplos:\n•\nÓleo;\n•\nGraxa;\n•\nProdutos químicos;\n•\nPoeira excessiva.\n5. Sintomas Comuns\nProblemas de correia normalmente apresentam:\n•\nAssobios ou chiados;\n•\nVibração excessiva;\n•\nAquecimento;\n•\nPerda de velocidade;\n•\nOscilação da correia;\n•\nPartículas de borracha próximas ao equipamento;\n•\nDesgaste irregular;",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P004-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 4,
+      "section": "•",
+      "text": "•\nFalhas recorrentes da correia.\n6. Ferramentas Necessárias\n•\nRégua metálica;\n•\nAlinhador a laser ou régua de alinhamento;\n•\nMedidor de tensão de correias;\n•\nTacômetro;\n•\nMedidor de vibração;\n•\nTermômetro infravermelho;\n•\nChaves mecânicas;\n•\nTorquímetro;\n•\nEPIs adequados.\n7. Segurança\nAntes de iniciar:\n1. Desligar o equipamento.\n2. Aplicar bloqueio e etiquetagem.\n3. Confirmar ausência de energia.\n4. Aguardar parada completa.\n5. Utilizar EPIs.\n6. Remover proteções apenas após bloqueio seguro.\n8. Inspeção Visual\nVerificar:\n•\nEstado geral da correia;\n•\nPresença de rachaduras;\n•\nDesgaste lateral;\n•\nRessecamento;\n•\nDesfiamento;\n•\nContaminação por óleo;\n•\nEstado das polias;\n•\nIntegridade das proteções.\nRegistrar todas as anomalias encontradas.",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P005-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 5,
+      "section": "9. Verificação da Tensão da Correia",
+      "text": "9. Verificação da Tensão da Correia\n9.1 Correia Frouxa\nIndicadores:\n•\nEscorregamento;\n•\nChiado na partida;\n•\nOscilação excessiva.\nCorreção\n1. Afrouxar os parafusos do motor.\n2. Ajustar a posição do motor.\n3. Aplicar a tensão recomendada.\n4. Reapertar os parafusos.\n5. Validar novamente.\n9.2 Correia Excessivamente Tensionada\nIndicadores:\n•\nAquecimento dos rolamentos;\n•\nVibração elevada;\n•\nDesgaste acelerado.\nCorreção\n1. Reduzir a distância entre as polias.\n2. Ajustar para a tensão especificada.\n3. Confirmar alinhamento após ajuste.\n10. Verificação do Alinhamento\nO alinhamento deve ser avaliado em:\nAlinhamento Paralelo\nAs faces das polias devem estar no mesmo plano.\nAlinhamento Angular",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P006-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 6,
+      "section": "Os eixos devem permanecer paralelos.",
+      "text": "Os eixos devem permanecer paralelos.\nProcedimento\n1. Posicionar régua ou alinhador.\n2. Verificar desvios.\n3. Ajustar posição do motor.\n4. Repetir a medição.\n5. Confirmar alinhamento final.\n11. Inspeção das Polias\nVerificar:\n•\nTrincas;\n•\nCorrosão;\n•\nEmpenamento;\n•\nDesgaste das ranhuras;\n•\nFixação no eixo.\nSubstituir polias quando necessário.\n12. Verificação Dinâmica\nCom o equipamento operando:\nObservar:\n•\nVibração;\n•\nOscilação da correia;\n•\nRuídos;\n•\nTemperatura.\nUma correia corretamente instalada deve operar de forma estável e sem movimentos\nexcessivos.\n13. Diagnóstico por Vibração",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P007-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 7,
+      "section": "Características Comuns",
+      "text": "Características Comuns\nProblemas de correia frequentemente geram:\nFrequência da Correia (Belt Frequency)\nRelacionada à velocidade linear da correia.\nHarmônicos\nMúltiplos da frequência fundamental da correia.\nModulação\nBandas laterais ao redor da frequência de rotação.\nSintomas Típicos\nDefeito\nCaracterística\nCorreia frouxa\nFrequências da correia + vibração elevada\nCorreia desgastada Harmônicos da correia\nDesalinhamento\nVibração axial elevada\nPolia defeituosa\nHarmônicos da rotação\nExcentricidade\nModulação em torno da RPM\n14. Substituição da Correia\nSubstituir imediatamente quando houver:\n•\nTrincas;\n•\nDesgaste excessivo;\n•\nContaminação severa;\n•\nAlongamento permanente;\n•\nFalha estrutural.\nProcedimento\n1. Afrouxar o sistema de ajuste.\n2. Remover a correia antiga.\n3. Inspecionar polias.\n4. Instalar nova correia.",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P008-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 8,
+      "section": "5. Ajustar tensão.",
+      "text": "5. Ajustar tensão.\n6. Alinhar polias.\n7. Reinstalar proteções.\n15. Validação Final\nApós a correção:\n1. Operar o equipamento.\n2. Medir vibração.\n3. Medir temperatura.\n4. Observar ruídos.\n5. Verificar estabilidade da correia.\nComparar os resultados com os valores anteriores.\n16. Critérios de Aceitação\nO sistema é considerado adequado quando:\n•\nNão há escorregamento;\n•\nVibração reduzida;\n•\nTemperatura normal;\n•\nCorreia estável;\n•\nAusência de ruídos anormais;\n•\nDesgaste uniforme.\n17. Registro da Intervenção\nRegistrar:\n•\nEquipamento;\n•\nData;\n•\nTipo de correia;\n•\nTensão aplicada;\n•\nVibração inicial;\n•\nVibração final;\n•\nTemperatura inicial;\n•\nTemperatura final;\n•\nComponentes substituídos;\n•\nObservações;",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC4-P009-C01",
+      "fault_family": "belt",
+      "document": "Doc4.pdf",
+      "page": 9,
+      "section": "•",
+      "text": "•\nResponsável técnico.\n18. Recomendações Preventivas\n•\nInspecionar correias periodicamente;\n•\nVerificar alinhamento regularmente;\n•\nMonitorar vibração;\n•\nMonitorar temperatura;\n•\nEvitar contaminação por óleo;\n•\nSubstituir correias em conjunto quando aplicável;\n•\nManter histórico de manutenção.\n19. Indicadores de Monitoramento\nPreditivo\nOs seguintes parâmetros devem ser acompanhados:\n•\nVibração RMS;\n•\nFrequência da correia;\n•\nFrequência de rotação;\n•\nTemperatura dos mancais;\n•\nTemperatura da correia;\n•\nCorrente do motor;\n•\nVelocidade de rotação.",
+      "source_sha256": "bb37221db8fb4c5359fc798d982f93d817556e70a7ebe178664a7ab4dc345ee2",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P001-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 1,
+      "section": "Procedimento para Diagnóstico e",
+      "text": "Procedimento para Diagnóstico e\nCorreção de Problemas em Polias de\nSistemas Rotativos\n1. Objetivo\nEste documento estabelece o procedimento para identificar, diagnosticar, corrigir e\nvalidar falhas relacionadas a polias utilizadas em sistemas de transmissão mecânica por\ncorreias.\nO objetivo é garantir a transmissão adequada de potência, reduzir vibrações, minimizar\nesforços mecânicos e aumentar a confiabilidade operacional do conjunto motor–\ntransmissão–carga.\n2. Introdução\nAs polias são elementos mecânicos responsáveis por transmitir movimento e torque\natravés de correias.\nDevido às condições de operação, desgaste natural e esforços mecânicos, podem surgir\ndefeitos que afetam diretamente o desempenho do sistema.\nProblemas em polias podem provocar:\n•\nVibração excessiva;\n•\nRuídos anormais;\n•\nDesgaste prematuro das correias;\n•\nSobrecarga dos rolamentos;\n•\nPerda de",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P001-C02",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 1,
+      "section": "Procedimento para Diagnóstico e",
+      "text": "car:\n•\nVibração excessiva;\n•\nRuídos anormais;\n•\nDesgaste prematuro das correias;\n•\nSobrecarga dos rolamentos;\n•\nPerda de eficiência;\n•\nAquecimento;\n•\nRedução da vida útil dos componentes.\n3. Principais Tipos de Falhas em Polias\n3.1 Excentricidade\nOcorre quando o centro geométrico da polia não coincide com o centro de rotação.\nCausas",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P002-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 2,
+      "section": "•",
+      "text": "•\nErro de fabricação;\n•\nDesgaste irregular;\n•\nImpactos mecânicos;\n•\nMontagem incorreta;\n•\nDeformação da polia.\nConsequências\n•\nVibração periódica;\n•\nOscilação da correia;\n•\nDesgaste acelerado.\n3.2 Desbalanceamento\nOcorre quando existe distribuição desigual de massa ao redor da polia.\nCausas\n•\nAcúmulo de sujeira;\n•\nCorrosão localizada;\n•\nPerda de material;\n•\nReparos inadequados.\nConsequências\n•\nVibração radial elevada;\n•\nSobrecarga mecânica;\n•\nDesgaste dos mancais.\n3.3 Desalinhamento\nOcorre quando as polias não estão corretamente alinhadas.\nTipos\n•\nParalelo;\n•\nAngular;\n•\nCombinado.\nConsequências\n•\nDesgaste lateral da correia;\n•\nRuído;\n•\nVibração;",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P003-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 3,
+      "section": "•",
+      "text": "•\nRedução da eficiência.\n3.4 Desgaste das Ranhuras\nComum em polias para correias em V.\nConsequências\n•\nEscorregamento;\n•\nAquecimento;\n•\nRedução da transmissão de torque.\n3.5 Trincas e Fissuras\nPodem surgir devido a:\n•\nFadiga;\n•\nSobrecarga;\n•\nCorrosão;\n•\nImpactos.\nConsequências\n•\nFalha estrutural;\n•\nRisco de ruptura.\n3.6 Folga no Cubo ou Chaveta\nOcorre quando existe movimento relativo entre polia e eixo.\nConsequências\n•\nBatidas mecânicas;\n•\nVibração;\n•\nDesgaste progressivo.\n4. Sintomas Comuns\nProblemas em polias normalmente apresentam:",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P004-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 4,
+      "section": "•",
+      "text": "•\nVibração excessiva;\n•\nOscilação da correia;\n•\nRuído periódico;\n•\nAquecimento dos mancais;\n•\nDesgaste irregular da correia;\n•\nAfrouxamento frequente;\n•\nPerda de rendimento.\n5. Ferramentas Necessárias\n•\nMedidor de vibração;\n•\nTacômetro;\n•\nRelógio comparador;\n•\nAlinhador a laser;\n•\nRégua de alinhamento;\n•\nTermômetro infravermelho;\n•\nTorquímetro;\n•\nChaves mecânicas;\n•\nEPIs adequados.\n6. Segurança\nAntes de qualquer intervenção:\n1. Desligar o equipamento.\n2. Aplicar bloqueio e etiquetagem.\n3. Confirmar ausência de energia.\n4. Aguardar parada completa.\n5. Remover proteções somente após bloqueio seguro.\n7. Inspeção Visual\nVerificar:\n•\nIntegridade da polia;\n•\nPresença de corrosão;\n•\nDesgaste das ranhuras;\n•\nTrincas;\n•\nEmpenamento;\n•\nAcúmulo de sujeira;\n•\nFixação da chaveta;",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P005-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 5,
+      "section": "•",
+      "text": "•\nAperto dos parafusos.\nRegistrar todas as anomalias.\n8. Verificação da Excentricidade\nA excentricidade é uma das falhas mais comuns em polias.\nProcedimento\n1. Instalar relógio comparador.\n2. Posicionar a ponta na periferia da polia.\n3. Girar lentamente o conjunto.\n4. Registrar a variação total indicada.\nSintomas de Excentricidade\nNo monitoramento vibracional:\n•\nPico dominante em 1x RPM;\n•\nVibração radial elevada;\n•\nOscilação periódica da correia.\nCorreção\n•\nReinstalar corretamente a polia;\n•\nCorrigir montagem;\n•\nSubstituir polias deformadas;\n•\nUsinar quando tecnicamente permitido.\n9. Verificação do Desbalanceamento\nSintomas\n•\nVibração predominante em 1x RPM;\n•\nVibração radial elevada;\n•\nAmplitude crescente com a velocidade.",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P006-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 6,
+      "section": "Causas",
+      "text": "Causas\n•\nAcúmulo de sujeira;\n•\nCorrosão localizada;\n•\nPerda de material.\nCorreção\n1. Limpar completamente a polia.\n2. Verificar danos estruturais.\n3. Realizar balanceamento estático ou dinâmico.\n4. Validar por análise de vibração.\n10. Verificação do Alinhamento\nVerificar:\nAlinhamento Paralelo\nAs polias devem permanecer no mesmo plano.\nAlinhamento Angular\nOs eixos devem permanecer paralelos.\nCorreção\n1. Ajustar a posição do motor.\n2. Corrigir a posição da polia.\n3. Repetir medições.\n4. Confirmar alinhamento final.\n11. Verificação das Ranhuras\nInspecionar:",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P007-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 7,
+      "section": "•",
+      "text": "•\nProfundidade;\n•\nUniformidade;\n•\nDesgaste lateral;\n•\nPresença de rebarbas.\nSintomas\n•\nEscorregamento da correia;\n•\nAquecimento;\n•\nRuído excessivo.\nCorreção\nSubstituir a polia quando o desgaste ultrapassar os limites aceitáveis.\n12. Verificação da Chaveta e Cubo\nInspecionar:\n•\nFolga radial;\n•\nFolga angular;\n•\nDesgaste da chaveta;\n•\nDesgaste do rasgo.\nSintomas\n•\nVibração variável;\n•\nRuídos metálicos;\n•\nImpactos periódicos.\nCorreção\n•\nSubstituir chavetas danificadas;\n•\nRecuperar ou substituir cubos;\n•\nReinstalar conforme especificação.",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P008-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 8,
+      "section": "13. Diagnóstico por Vibração",
+      "text": "13. Diagnóstico por Vibração\nExcentricidade\nCaracterísticas típicas:\n•\nForte componente em 1x RPM;\n•\nVibração radial predominante;\n•\nOscilação sincronizada com a rotação.\nDesbalanceamento\nCaracterísticas típicas:\n•\nPico dominante em 1x RPM;\n•\nVibração estável;\n•\nBaixa presença de harmônicos.\nFolga Mecânica\nCaracterísticas típicas:\n•\nMúltiplos harmônicos;\n•\nVibração instável;\n•\nImpactos mecânicos.\nDesalinhamento\nCaracterísticas típicas:\n•\nVibração axial elevada;\n•\nPresença de 1x e 2x RPM;\n•\nDesgaste lateral da correia.\n14. Validação Final\nApós a correção:",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P009-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 9,
+      "section": "1. Reinstalar proteções.",
+      "text": "1. Reinstalar proteções.\n2. Operar o equipamento.\n3. Monitorar vibração.\n4. Monitorar temperatura.\n5. Avaliar comportamento da correia.\n6. Confirmar estabilidade operacional.\n15. Critérios de Aceitação\nA polia é considerada apta quando:\n•\nNão apresenta trincas;\n•\nNão possui folgas excessivas;\n•\nEstá corretamente alinhada;\n•\nNão apresenta excentricidade significativa;\n•\nOpera com vibração reduzida;\n•\nNão provoca desgaste anormal da correia.\n16. Registro da Intervenção\nRegistrar:\n•\nEquipamento;\n•\nTipo de polia;\n•\nRPM de operação;\n•\nVibração inicial;\n•\nVibração final;\n•\nTemperatura inicial;\n•\nTemperatura final;\n•\nComponentes substituídos;\n•\nCorreções realizadas;\n•\nResponsável técnico.\n17. Recomendações Preventivas\n•\nInspecionar visualmente as polias periodicamente;\n•\nMonitorar vibração;\n•\nVerificar alinhamento regularmente;\n•\nLimpar acúmulos de sujeira;\n•\nInspecionar chavetas;\n•\nAvaliar",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P009-C02",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 9,
+      "section": "1. Reinstalar proteções.",
+      "text": "onitorar vibração;\n•\nVerificar alinhamento regularmente;\n•\nLimpar acúmulos de sujeira;\n•\nInspecionar chavetas;\n•\nAvaliar desgaste das ranhuras;",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC5-P010-C01",
+      "fault_family": "pulley",
+      "document": "Doc5.pdf",
+      "page": 10,
+      "section": "•",
+      "text": "•\nSubstituir componentes danificados antes da falha.\n18. Indicadores de Monitoramento\nPreditivo\nRecomenda-se acompanhar:\n•\nVibração RMS;\n•\nPico em 1x RPM;\n•\nTemperatura dos mancais;\n•\nTemperatura da correia;\n•\nCorrente do motor;\n•\nVelocidade de rotação;\n•\nTendência de desgaste.",
+      "source_sha256": "9312430fdb2411241bd49c183ca0c45a67ac043c88408ae241d4842ac205c46c",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P001-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 1,
+      "section": "Procedimento para Diagnóstico e",
+      "text": "Procedimento para Diagnóstico e\nCorreção de Problemas de Rotor\nInclinado (Cocked Rotor)\n1. Objetivo\nEste documento estabelece o procedimento para identificar, diagnosticar, corrigir e\nvalidar falhas relacionadas à condição conhecida como Rotor Inclinado (Cocked\nRotor) em máquinas rotativas.\nO objetivo é restaurar o correto posicionamento geométrico do rotor, reduzir vibrações,\nminimizar esforços mecânicos e aumentar a confiabilidade operacional do equipamento.\n2. Introdução\nO termo Cocked Rotor descreve uma condição em que o rotor encontra-se inclinado\nem relação ao seu eixo de rotação ou em relação ao plano de montagem originalmente\nprojetado.\nNessa situação, o rotor não gira perpendicularmente ao eixo, gerando forças dinâmicas\nadicionais durante a operação.\nEssa condição pode ser encontrada em:\n•\nMotores elétricos;\n•\nVentiladores;\n•\nBombas",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P001-C02",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 1,
+      "section": "Procedimento para Diagnóstico e",
+      "text": "micas\nadicionais durante a operação.\nEssa condição pode ser encontrada em:\n•\nMotores elétricos;\n•\nVentiladores;\n•\nBombas centrífugas;\n•\nExaustores;\n•\nCompressores;\n•\nSistemas de transmissão mecânica;\n•\nMáquinas rotativas em geral.\n3. Caracterização da Falha\nUm rotor inclinado apresenta um desvio angular entre:\n•\nO plano do rotor;\n•\nO eixo geométrico de rotação.\nEm condições normais:",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P002-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 2,
+      "section": "•",
+      "text": "•\nO rotor permanece perpendicular ao eixo.\nNa condição de Cocked Rotor:\n•\nO rotor opera inclinado;\n•\nO centro de massa pode permanecer próximo ao eixo;\n•\nPorém a geometria de rotação torna-se irregular.\n4. Principais Causas\n4.1 Montagem Incorreta\nExemplos:\n•\nRotor instalado sem assentamento adequado;\n•\nAperto irregular;\n•\nMontagem fora de esquadro.\n4.2 Desgaste de Rolamentos\nO desgaste pode provocar inclinação do conjunto rotativo.\n4.3 Eixo Empenado\nDeformações permanentes podem gerar inclinação do rotor.\n4.4 Cubo Montado Incorretamente\nPode ocorrer quando:\n•\nChaveta está danificada;\n•\nExiste sujeira entre superfícies;\n•\nO cubo não assenta corretamente.\n4.5 Danos Mecânicos",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P003-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 3,
+      "section": "Exemplos:",
+      "text": "Exemplos:\n•\nImpactos;\n•\nQuedas durante transporte;\n•\nChoques mecânicos.\n4.6 Defeitos de Fabricação\nExemplos:\n•\nUsinagem inadequada;\n•\nErros geométricos;\n•\nDefeitos dimensionais.\n5. Sintomas Comuns\nProblemas de rotor inclinado normalmente apresentam:\n•\nVibração elevada;\n•\nVibração radial e axial simultaneamente;\n•\nRuídos anormais;\n•\nAquecimento dos mancais;\n•\nDesgaste prematuro dos rolamentos;\n•\nOscilações periódicas;\n•\nRedução da vida útil dos componentes.\n6. Ferramentas Necessárias\n•\nMedidor de vibração;\n•\nAcelerômetros;\n•\nTacômetro;\n•\nRelógio comparador;\n•\nAlinhador a laser;\n•\nTermômetro infravermelho;\n•\nTorquímetro;\n•\nFerramentas mecânicas;\n•\nEPIs adequados.\n7. Segurança",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P004-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 4,
+      "section": "Antes de iniciar qualquer intervenção:",
+      "text": "Antes de iniciar qualquer intervenção:\n1. Desligar o equipamento.\n2. Aplicar bloqueio e etiquetagem.\n3. Confirmar ausência de energia.\n4. Aguardar parada completa.\n5. Utilizar EPIs apropriados.\n8. Inspeção Visual\nVerificar:\n•\nInclinação aparente do rotor;\n•\nMarcas de contato;\n•\nDesgaste irregular;\n•\nFolgas;\n•\nIntegridade do cubo;\n•\nIntegridade da chaveta;\n•\nIntegridade dos mancais.\nRegistrar todas as anomalias observadas.\n9. Verificação Geométrica\n9.1 Batimento Radial\nInstalar relógio comparador na periferia do rotor.\nGirar lentamente o conjunto.\nRegistrar a variação observada.\n9.2 Batimento Axial\nPosicionar o relógio comparador na face do rotor.\nGirar lentamente.\nRegistrar a variação axial.",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P005-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 5,
+      "section": "Indícios de Cocked Rotor",
+      "text": "Indícios de Cocked Rotor\nValores elevados de batimento axial normalmente indicam inclinação do rotor.\n10. Diagnóstico por Vibração\nRealizar medições:\n•\nHorizontal;\n•\nVertical;\n•\nAxial.\nRegistrar:\n•\nRMS;\n•\nPico;\n•\nFFT;\n•\nFase.\n11. Características Vibracionais\nO rotor inclinado apresenta comportamento intermediário entre:\n•\nDesbalanceamento;\n•\nDesalinhamento.\n11.1 Componente em 1x RPM\nNormalmente presente.\nRepresenta a principal frequência de rotação.\n11.2 Componente em 2x RPM\nFrequentemente observada.\nCostuma ser mais intensa do que em um simples desbalanceamento.",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P006-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 6,
+      "section": "11.3 Vibração Axial Elevada",
+      "text": "11.3 Vibração Axial Elevada\nUma das principais características da falha.\n11.4 Harmônicos Adicionais\nPodem surgir conforme a severidade do defeito.\n12. Diferenciação de Outras Falhas\nDesbalanceamento\nCaracterísticas:\n•\nForte 1x RPM;\n•\nBaixa vibração axial;\n•\nPoucos harmônicos.\nDesalinhamento\nCaracterísticas:\n•\nForte componente axial;\n•\n1x RPM;\n•\n2x RPM;\n•\nProblema localizado entre eixos.\nCocked Rotor\nCaracterísticas:\n•\nForte 1x RPM;\n•\nPresença significativa de 2x RPM;\n•\nVibração axial e radial simultâneas;\n•\nProblema localizado no próprio rotor.",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P007-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 7,
+      "section": "13. Inspeção dos Rolamentos",
+      "text": "13. Inspeção dos Rolamentos\nVerificar:\n•\nFolga radial;\n•\nFolga axial;\n•\nTemperatura;\n•\nRuídos.\nRolamentos desgastados podem induzir inclinação do rotor.\n14. Inspeção do Eixo\nVerificar:\n•\nEmpenamento;\n•\nDesgaste;\n•\nCorrosão;\n•\nBatimento excessivo.\nUtilizar relógio comparador para medição.\n15. Verificação do Cubo e Chaveta\nInspecionar:\n•\nAssentamento;\n•\nAperto;\n•\nDesgaste;\n•\nTrincas.\nCorrigir qualquer condição que provoque inclinação.\n16. Correção da Falha\nCaso 1 – Montagem Incorreta",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P008-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 8,
+      "section": "Procedimento:",
+      "text": "Procedimento:\n1. Remover o rotor.\n2. Limpar superfícies.\n3. Verificar assentamento.\n4. Reinstalar corretamente.\n5. Aplicar torque adequado.\nCaso 2 – Rolamento Defeituoso\nProcedimento:\n1. Remover rolamentos.\n2. Inspecionar alojamentos.\n3. Instalar novos rolamentos.\n4. Verificar alinhamento do conjunto.\nCaso 3 – Eixo Empenado\nProcedimento:\n1. Avaliar empenamento.\n2. Retificar quando tecnicamente possível.\n3. Substituir o eixo quando necessário.\nCaso 4 – Rotor Danificado\nProcedimento:\n1. Avaliar possibilidade de recuperação.\n2. Realizar usinagem corretiva quando aplicável.\n3. Substituir o rotor caso necessário.\n17. Validação Final\nApós a correção:\n1. Montar o conjunto.\n2. Realizar partida controlada.",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P009-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 9,
+      "section": "3. Monitorar vibração.",
+      "text": "3. Monitorar vibração.\n4. Monitorar temperatura.\n5. Avaliar ruído.\n6. Registrar novos dados.\n18. Critérios de Aceitação\nO rotor é considerado apto quando:\n•\nBatimentos estão dentro da tolerância;\n•\nVibração reduz significativamente;\n•\nNão existem ruídos anormais;\n•\nTemperaturas permanecem estáveis;\n•\nO conjunto opera sem oscilações excessivas.\n19. Registro da Intervenção\nRegistrar:\n•\nEquipamento;\n•\nData;\n•\nRPM;\n•\nVibração inicial;\n•\nVibração final;\n•\nTemperatura inicial;\n•\nTemperatura final;\n•\nBatimento radial;\n•\nBatimento axial;\n•\nComponentes substituídos;\n•\nObservações;\n•\nResponsável técnico.\n20. Recomendações Preventivas\n•\nInspecionar rolamentos periodicamente;\n•\nVerificar alinhamento durante manutenções;\n•\nMonitorar vibração continuamente;\n•\nVerificar torque de fixação;\n•\nInspecionar chavetas e cubos;\n•\nRealizar medições de batimento em paradas programadas.",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    },
+    {
+      "citation_id": "DOC6-P010-C01",
+      "fault_family": "cocked_rotor",
+      "document": "Doc6.pdf",
+      "page": 10,
+      "section": "21. Indicadores para Monitoramento",
+      "text": "21. Indicadores para Monitoramento\nPreditivo\nRecomenda-se acompanhar:\n•\nVibração RMS;\n•\nVibração axial;\n•\nComponente 1x RPM;\n•\nComponente 2x RPM;\n•\nTemperatura dos mancais;\n•\nTemperatura do rotor;\n•\nTendência de batimento.",
+      "source_sha256": "7cd497828242d9ec0230618f1a999166951c4d8be6e282f89f75f08d36e3acf9",
+      "extraction": "text_layer"
+    }
+  ]
+}
