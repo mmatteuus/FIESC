@@ -1,0 +1,29 @@
+name: Limpar repositorio
+
+on:
+  push:
+    branches: [finalizacao-fiesc]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: ${{ !contains(github.event.head_commit.message, '[skip cleanup]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Remover ambiente local versionado
+        shell: bash
+        run: |
+          if git ls-files --error-unmatch .venv >/dev/null 2>&1 || git ls-files .venv | grep -q .; then
+            git rm -r --cached .venv
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: remove ambiente virtual do repositorio [skip cleanup]"
+            git push origin HEAD:finalizacao-fiesc
+          else
+            echo "Ambiente virtual ja removido."
+          fi

@@ -13,8 +13,8 @@ from .service import RecommendationService
 
 app = FastAPI(
     title="FIESC - Manutencao Prescritiva",
-    version="1.0.0",
-    description="API auditavel com ML, RAG, citacoes e abstencao segura.",
+    version="1.1.0",
+    description="API auditavel com classificacao, recuperacao documental, citacoes e abstencao segura.",
 )
 
 
@@ -50,6 +50,24 @@ def ready() -> dict[str, object]:
         raise HTTPException(
             status_code=503, detail=f"Servico nao pronto: {type(exc).__name__}"
         ) from exc
+
+
+@app.get("/demo-events")
+def demo_events() -> list[dict[str, object]]:
+    settings = get_settings()
+    path = settings.root_dir / "data" / "demo" / "demo_events.json"
+    if not path.exists():
+        raise HTTPException(status_code=503, detail="Cenarios demonstrativos ausentes")
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return [
+        {
+            "name": item["name"],
+            "expected_fault": item["expected_fault"],
+            "expected_status": item["expected_status"],
+            "event": item["event"],
+        }
+        for item in payload
+    ]
 
 
 @app.get("/model-info")
