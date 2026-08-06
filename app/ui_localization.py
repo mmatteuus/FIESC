@@ -48,7 +48,8 @@ TRANSLATIONS: dict[Language, dict[str, str]] = {
     "pt-BR": {
         "page_title": "FIESC | Manutenção prescritiva", "title": "Manutenção prescritiva",
         "subtitle": "Diagnóstico, eventos semelhantes e recomendações apoiadas por documentação técnica.",
-        "language": "Idioma", "sidebar_title": "Analisar um cenário", "example": "Exemplo",
+        "language": "Idioma da interface", "language_note": "Trechos técnicos das fontes podem permanecer no idioma original.",
+        "sidebar_title": "Analisar um cenário", "example": "Exemplo",
         "question": "Pergunta para a recomendação", "default_question": "Quais verificações e ações corretivas devo executar?",
         "advanced": "Configuração avançada", "recommendation_mode": "Modo de recomendação",
         "mode_auto": "Automático", "mode_gemini": "Gemini", "mode_extractive": "Somente documentos", "mode_ollama": "Modelo local",
@@ -77,8 +78,8 @@ TRANSLATIONS: dict[Language, dict[str, str]] = {
         "not_available": "Não disponível", "per_day": "por dia", "date": "Data", "observed_condition": "Condição observada", "events": "Eventos",
         "closest_cases": "Casos mais próximos", "proximity": "Proximidade", "consulted_documents": "Documentos consultados",
         "no_documents": "Nenhum documento foi consultado porque uma regra de segurança interrompeu o fluxo.", "page": "página",
-        "excerpt_relevance": "Relevância do trecho", "macro_f1": "Macro F1 no teste", "balanced_accuracy": "Acurácia balanceada",
-        "independent_sessions": "Sessões independentes", "test_caption": "O conjunto de teste não participa da escolha do modelo nem dos limiares.",
+        "excerpt_relevance": "Relevância do trecho",         "macro_f1": "Macro F1 no teste", "balanced_accuracy": "Acurácia balanceada",
+        "independent_sessions": "Sessões no teste independente", "test_caption": "O conjunto de teste não participa da escolha do modelo nem dos limiares.",
         "model": "Modelo", "selection_macro_f1": "Macro F1 na seleção", "size_mb": "Tamanho (MB)",
         "random_split_warning": "Uma divisão aleatória alcançou macro F1 {value:.3f}, mas mistura contextos semelhantes e superestima a generalização.",
         "solution_limits": "Limites da solução", "limit_score": "O score do classificador não é uma probabilidade física calibrada.",
@@ -89,8 +90,8 @@ TRANSLATIONS: dict[Language, dict[str, str]] = {
         "acceleration": "Aceleração", "signal_characteristics": "Características do sinal", "temperature": "Temperatura",
         "supported": "Recomendação liberada", "unsupported_documentation": "Sem documentação para recomendar",
         "low_confidence": "Revisão humana necessária", "normal_operation": "Operação normal", "llm_unavailable": "Evidência indisponível",
-        "scenario_bearing": "Falha em rolamento", "scenario_misalignment": "Desalinhamento", "scenario_eccentric": "Rotor excêntrico",
-        "scenario_phase_loss": "Perda de fase", "scenario_normal": "Operação normal", "scenario_low_confidence": "Resultado inconclusivo",
+        "scenario_bearing": "Falha em rolamento", "scenario_misalignment": "Desalinhamento", "scenario_eccentric": "Rotor excêntrico — sem documento",
+        "scenario_phase_loss": "Perda de fase — sem documento", "scenario_normal": "Operação normal", "scenario_low_confidence": "Resultado inconclusivo",
         "provider_none": "Não consultado", "provider_gemini": "Gemini", "provider_ollama": "Modelo local", "provider_extractive": "Síntese documental",
         "warning_motor_off": "Motor parado: estado definido por regra operacional; o score do modelo não se aplica.",
         "warning_human_inspection": "Inspeção humana necessária antes de classificar a falha.",
@@ -101,7 +102,8 @@ TRANSLATIONS: dict[Language, dict[str, str]] = {
     "en": {
         "page_title": "FIESC | Prescriptive maintenance", "title": "Prescriptive maintenance",
         "subtitle": "Diagnosis, similar events, and recommendations supported by technical documentation.",
-        "language": "Language", "sidebar_title": "Analyze a scenario", "example": "Example",
+        "language": "Interface language", "language_note": "Technical source excerpts may remain in their original language.",
+        "sidebar_title": "Analyze a scenario", "example": "Example",
         "question": "Recommendation question", "default_question": "Which checks and corrective actions should I perform?",
         "advanced": "Advanced settings", "recommendation_mode": "Recommendation mode", "mode_auto": "Automatic",
         "mode_gemini": "Gemini", "mode_extractive": "Documents only", "mode_ollama": "Local model",
@@ -125,8 +127,8 @@ TRANSLATIONS: dict[Language, dict[str, str]] = {
         "similar_references": "Similar references", "observed_period": "Observed period", "average_frequency": "Average frequency", "not_available": "Not available",
         "per_day": "per day", "date": "Date", "observed_condition": "Observed condition", "events": "Events", "closest_cases": "Closest cases",
         "proximity": "Proximity", "consulted_documents": "Consulted documents", "no_documents": "No document was consulted because a safety rule stopped the flow.",
-        "page": "page", "excerpt_relevance": "Excerpt relevance", "macro_f1": "Test macro F1", "balanced_accuracy": "Balanced accuracy",
-        "independent_sessions": "Independent sessions", "test_caption": "The test set does not participate in model or threshold selection.", "model": "Model",
+        "page": "page", "excerpt_relevance": "Excerpt relevance",         "macro_f1": "Test macro F1", "balanced_accuracy": "Balanced accuracy",
+        "independent_sessions": "Sessions in the independent test set", "test_caption": "The test set does not participate in model or threshold selection.", "model": "Model",
         "selection_macro_f1": "Selection macro F1", "size_mb": "Size (MB)", "random_split_warning": "A random split reached macro F1 {value:.3f}, but mixes similar contexts and overestimates generalization.",
         "solution_limits": "Solution limitations", "limit_score": "The classifier score is not a calibrated physical probability.",
         "limit_docs": "Families without documentation are rejected before recommendation generation.", "limit_human": "Every intervention requires inspection and professional approval.",
@@ -135,7 +137,7 @@ TRANSLATIONS: dict[Language, dict[str, str]] = {
         "signal_characteristics": "Signal characteristics", "temperature": "Temperature", "supported": "Recommendation available",
         "unsupported_documentation": "No documentation available for recommendation", "low_confidence": "Human review required",
         "normal_operation": "Normal operation", "llm_unavailable": "Evidence unavailable", "scenario_bearing": "Bearing fault",
-        "scenario_misalignment": "Misalignment", "scenario_eccentric": "Eccentric rotor", "scenario_phase_loss": "Phase loss",
+        "scenario_misalignment": "Misalignment", "scenario_eccentric": "Eccentric rotor — no documentation", "scenario_phase_loss": "Phase loss — no documentation",
         "scenario_normal": "Normal operation", "scenario_low_confidence": "Inconclusive result", "provider_none": "Not consulted", "provider_gemini": "Gemini",
         "provider_ollama": "Local model", "provider_extractive": "Document synthesis",
         "warning_motor_off": "Motor stopped: state defined by operational rule; the model score does not apply.",
@@ -221,6 +223,11 @@ def localized_date_format(language: Language) -> str:
 
 def localized_datetime_format(language: Language) -> str:
     return "%m/%d/%Y %H:%M" if language == "en" else "%d/%m/%Y %H:%M"
+
+
+def localized_integer_format(value: int, language: Language) -> str:
+    digits = f"{value:,}"
+    return digits if language == "en" else digits.replace(",", ".")
 
 
 def preserve_technical_keys(original: Mapping[str, object], edited: Mapping[str, object]) -> dict[str, object]:

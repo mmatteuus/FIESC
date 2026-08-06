@@ -21,8 +21,11 @@ from app.ui_localization import (
     TRANSLATIONS,
     Language,
     build_event_payload,
+    localized_date_format,
+    localized_datetime_format,
     localized_fault_label,
     localized_field_label,
+    localized_integer_format,
     localized_provider_label,
     localized_scenario_label,
     localized_state_label,
@@ -100,7 +103,10 @@ def test_all_scenarios_translated() -> None:
         for key in SCENARIO_KEYS.values():
             assert TRANSLATIONS[language][key].strip()
     assert localized_scenario_label("operacao_normal", "pt-BR") == "Operação normal"
-    assert localized_scenario_label("sem_documento_rotor_excentrico", "en") == "Eccentric rotor"
+    assert localized_scenario_label("sem_documento_rotor_excentrico", "pt-BR") == "Rotor excêntrico — sem documento"
+    assert localized_scenario_label("sem_documento_rotor_excentrico", "en") == "Eccentric rotor — no documentation"
+    assert localized_scenario_label("sem_documento_perda_de_fase", "pt-BR") == "Perda de fase — sem documento"
+    assert localized_scenario_label("sem_documento_perda_de_fase", "en") == "Phase loss — no documentation"
 
 
 def test_all_sensor_fields_translated() -> None:
@@ -208,6 +214,64 @@ def test_core_ui_terms_differ_between_languages() -> None:
     core_keys = {"title", "overview", "new_analysis", "predicted_fault", "similar_events"}
     for key in core_keys:
         assert TRANSLATIONS["pt-BR"][key] != TRANSLATIONS["en"][key]
+
+
+def test_test_sessions_labels_are_explicit() -> None:
+    assert TRANSLATIONS["pt-BR"]["test_sessions"] == "Sessões de teste"
+    assert TRANSLATIONS["en"]["test_sessions"] == "Test sessions"
+    assert TRANSLATIONS["pt-BR"]["independent_sessions"] == "Sessões no teste independente"
+    assert TRANSLATIONS["en"]["independent_sessions"] == "Sessions in the independent test set"
+
+
+def test_language_selector_labels_and_note() -> None:
+    assert TRANSLATIONS["pt-BR"]["language"] == "Idioma da interface"
+    assert TRANSLATIONS["en"]["language"] == "Interface language"
+    assert TRANSLATIONS["en"]["language_note"] == "Technical source excerpts may remain in their original language."
+    assert TRANSLATIONS["pt-BR"]["language_note"].strip()
+
+
+def test_undocumented_scenarios_explicitly_refuse() -> None:
+    assert TRANSLATIONS["pt-BR"]["scenario_eccentric"] == "Rotor excêntrico — sem documento"
+    assert TRANSLATIONS["pt-BR"]["scenario_phase_loss"] == "Perda de fase — sem documento"
+    assert TRANSLATIONS["en"]["scenario_eccentric"] == "Eccentric rotor — no documentation"
+    assert TRANSLATIONS["en"]["scenario_phase_loss"] == "Phase loss — no documentation"
+
+
+def test_localized_integer_format() -> None:
+    assert localized_integer_format(166796, "pt-BR") == "166.796"
+    assert localized_integer_format(166796, "en") == "166,796"
+    assert localized_integer_format(74, "pt-BR") == "74"
+    assert localized_integer_format(74, "en") == "74"
+    assert localized_integer_format(1000000, "pt-BR") == "1.000.000"
+    assert localized_integer_format(1000000, "en") == "1,000,000"
+
+
+def test_localized_date_formats() -> None:
+    assert localized_date_format("pt-BR") == "%d/%m/%Y"
+    assert localized_date_format("en") == "%m/%d/%Y"
+
+
+def test_localized_datetime_formats() -> None:
+    assert localized_datetime_format("pt-BR") == "%d/%m/%Y %H:%M"
+    assert localized_datetime_format("en") == "%m/%d/%Y %H:%M"
+
+
+def test_technical_excerpts_are_preserved_in_original_language() -> None:
+    root = Path(__file__).resolve().parents[1]
+    index = json.loads((root / "artifacts" / "knowledge_index.json").read_text(encoding="utf-8"))
+    chunks = cast(list[dict[str, object]], index["chunks"])
+    assert chunks, "indice documental sem trechos"
+    excerpts = [str(chunk["text"])[:650] for chunk in chunks if not str(chunk["text"]).isspace()]
+    assert excerpts, "indice documental sem trechos de texto"
+    original_language_text = next(
+        text for text in excerpts
+        if any(char in text for char in "ãçêõáéíóú")
+    )
+    pt_values = set(TRANSLATIONS["pt-BR"].values())
+    en_values = set(TRANSLATIONS["en"].values())
+    assert original_language_text not in pt_values
+    assert original_language_text not in en_values
+    assert all(text.strip() for text in excerpts[:5])
 
 
 def test_no_mojibake_in_interface_files() -> None:

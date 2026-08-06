@@ -20,6 +20,7 @@ from app.ui_localization import (
     localized_datetime_format,
     localized_fault_label,
     localized_field_label,
+    localized_integer_format,
     localized_provider_label,
     localized_scenario_label,
     localized_state_label,
@@ -105,7 +106,7 @@ def render_summary_cards(response: RecommendationResponse, language: Language) -
         (translate("operating_state", language), localized_state_label(response.operating_state, language)),
         (translate("predicted_fault", language), localized_fault_label(response.predicted_fault, language)),
         (translate("documentation_available", language), translate("yes" if response.documentation_available else "no", language)),
-        (translate("similar_events", language), str(response.similarity_summary.reference_count)),
+        (translate("similar_events", language), localized_integer_format(response.similarity_summary.reference_count, language)),
     )
     first_row = st.columns(2)
     second_row = st.columns(2)
@@ -148,6 +149,7 @@ with st.sidebar:
         on_change=clear_response_on_language_change,
     )
     language = LANGUAGE_OPTIONS[str(language_name)]
+    st.caption(translate("language_note", language))
     st.header(translate("sidebar_title", language))
     selected_name = st.selectbox(
         translate("example", language), list(demo_by_name),
@@ -175,10 +177,10 @@ with overview_tab:
         audit = cast(dict[str, object], metadata["source_audit"])
         first, second, third, fourth = st.columns(4)
         row_count = int(cast(int | str, audit["rows"]))
-        first.metric(translate("measurements_audited", language), f"{row_count:,}".replace(",", "."))
+        first.metric(translate("measurements_audited", language), localized_integer_format(row_count, language))
         second.metric(translate("consolidated_conditions", language), "10")
         third.metric(translate("documented_families", language), "6 / 9")
-        fourth.metric(translate("test_sessions", language), str(metrics.get("test_sessions", 74)))
+        fourth.metric(translate("test_sessions", language), localized_integer_format(int(cast(int | str, metrics.get("test_sessions", 74))), language))
         st.info(translate("choose_scenario", language))
         st.write(translate("decision_explanation", language))
     else:

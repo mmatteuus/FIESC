@@ -103,10 +103,25 @@ Acesse `http://127.0.0.1:8501`.
 
 ### Docker
 
+O **contêiner padrão executa o dashboard Streamlit, que utiliza o serviço de recomendação da aplicação**:
+
 ```powershell
 docker build -t fiesc-prescritiva:local .
 docker run --rm -p 8501:8501 fiesc-prescritiva:local
 ```
+
+Para executar a API FastAPI separadamente:
+
+```powershell
+docker build -t fiesc-prescritiva:api .
+docker run --rm -p 8000:8000 fiesc-prescritiva:api uvicorn fiesc_pm.api:app --host 0.0.0.0 --port 8000
+```
+
+### Publicação web na Vercel
+
+A publicação web apresenta cenários e resultados reproduzíveis previamente validados pelo pipeline Python. A inferência real é executada pela API FastAPI, pelo dashboard Streamlit ou pelo pacote local.
+
+A página estática consome `GET /demo-events` e `POST /v1/recommendations` da API publicada (`vercel.json` aponta `app_server.py`). O modo automático usa Gemini quando `GEMINI_API_KEY` está configurada como variável protegida e mantém a contingência extrativa local quando o serviço externo não está disponível.
 
 ## Endpoints
 
@@ -213,11 +228,14 @@ docs/               arquitetura, decisões e rastreabilidade
 
 ## Limitações conhecidas
 
-- Métricas por sessões são moderadas e representam a dificuldade real de generalização entre campanhas.
-- Confiança de classificação não equivale a probabilidade calibrada de falha física.
-- A base não representa todas as máquinas, condições e regimes industriais.
-- A seleção agrupada não contém amostras da família polia.
+- Macro F1 do teste independente por sessões é **aproximadamente 0,415** e representa a dificuldade real de generalização entre campanhas.
+- A divisão aleatória (macro F1 0,829) **superestima a generalização** porque mistura contextos semelhantes; é apresentada apenas como diagnóstico.
+- O score de confiança **não é uma probabilidade física calibrada** de existência da falha.
+- A seleção agrupada **não contém exemplos da classe polia**; essa limitação está registrada nos artefatos.
 - A recuperação textual utiliza TF-IDF local para manter rastreabilidade e baixo consumo.
-- Uso industrial exige autenticação corporativa, catálogo de ativos, monitoramento de drift, observabilidade e aprovação humana.
+- A base não representa todas as máquinas, condições e regimes industriais.
+- **O uso industrial exige validação prospectiva** com dados da operação real antes de qualquer decisão automatizada.
+- **Toda intervenção exige validação humana** (inspeção, bloqueio, etiquetagem e aprovação de profissional qualificado).
+- Esta entrega é uma **prova de conceito**, não um sistema autônomo de manutenção.
 
 Consulte [Arquitetura](docs/ARQUITETURA.md), [Decisões](docs/DECISIONS.md) e [Rastreabilidade](docs/TRACEABILITY.md).

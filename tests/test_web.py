@@ -20,6 +20,14 @@ def test_web_demo_contains_required_elements() -> None:
     assert "innerHTML" not in html
 
 
+def test_web_demo_does_not_expose_full_document_excerpts() -> None:
+    root = Path(__file__).resolve().parents[1]
+    html = (root / "public/index.html").read_text(encoding="utf-8")
+    assert "SNIPPET_LIMIT=220" in html
+    assert "textContent=publicSnippet(citation.excerpt)" in html
+    assert "excerpt.textContent=citation.excerpt;" not in html
+
+
 def test_root_redirects_to_web_demo() -> None:
     client = TestClient(app)
     response = client.get("/", follow_redirects=False)
