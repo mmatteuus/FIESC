@@ -117,7 +117,7 @@ docker run --rm -p 8501:8501 fiesc-prescritiva:local
 - `GET /model-info`: versão, atributos, limiares e hashes.
 - `POST /v1/recommendations`: decisão, similaridade, fontes e orientação prescritiva.
 
-O corpo do POST utiliza um `event` de `data/demo/demo_events.json`, uma pergunta, `provider: "extractive"` e `top_k: 3`.
+O corpo do POST utiliza um `event` de `data/demo/demo_events.json`, uma pergunta, `provider: "auto"` e `top_k: 3`. No modo automático, Gemini é usado quando `GEMINI_API_KEY` está configurada; caso contrário, a mesma chamada cai para a síntese extrativa citada.
 
 ## Variáveis de ambiente
 
@@ -133,7 +133,20 @@ OLLAMA_BASE_URL=http://127.0.0.1:11434
 OLLAMA_MODEL=qwen3:1.7b
 ```
 
-Sem chave externa, a aplicação funciona no modo extrativo e mantém as citações documentais. Para exposição fora de `localhost`, configure `FIESC_API_KEY` e envie `X-API-Key` nas chamadas protegidas.
+Sem chave externa, a aplicação funciona imediatamente no modo extrativo e mantém as citações documentais. Com `GEMINI_API_KEY`, `provider: "auto"` usa Gemini e volta automaticamente para o modo extrativo se o serviço externo falhar.
+
+### Demonstração com Gemini sem segredo no Git
+
+A chave nunca precisa aparecer em commit, ZIP, comando de terminal ou captura de tela. Configure-a localmente por entrada oculta:
+
+```powershell
+python scripts/configure_demo_env.py
+uvicorn fiesc_pm.api:app --host 127.0.0.1 --port 8000
+```
+
+O script grava somente o arquivo local `.env`, ignorado pelo Git, e não imprime o valor. Confirme a integração em `GET /ready`: o campo `gemini_configured` deve retornar `true`. Na interface, o indicador mostra `Motor online · Gemini` e cada resultado informa o provedor efetivamente utilizado.
+
+Na Vercel ou em outro ambiente de produção, cadastre `GEMINI_API_KEY` como variável de ambiente protegida e faça um novo deploy. Para exposição fora de `localhost`, configure também `FIESC_API_KEY` e envie `X-API-Key` nas chamadas protegidas.
 
 ## Qualidade e segurança
 
