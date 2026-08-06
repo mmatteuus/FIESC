@@ -1,0 +1,50 @@
+name: CI Diagnostic
+
+on:
+  push:
+    branches: [finalizacao-fiesc]
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    if: ${{ !contains(github.event.head_commit.message, '[skip diagnostic]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: finalizacao-fiesc
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Executar diagnostico
+        shell: bash
+        run: |
+          set +e
+          : > ci-diagnostic.txt
+          run_check() {
+            echo "## $1" >> ci-diagnostic.txt
+            shift
+            "$@" >> ci-diagnostic.txt 2>&1
+            code=$?
+            echo "EXIT_CODE=$code" >> ci-diagnostic.txt
+            echo >> ci-diagnostic.txt
+          }
+          run_check "install-dev" python -m pip install -r requirements-dev.txt
+          run_check "install-project" python -m pip install --no-deps -e .
+          run_check "ruff" python -m ruff check .
+          run_check "mypy" python -m mypy src app scripts tests
+          run_check "pytest" python -m pytest
+          run_check "smoke" python scripts/smoke_test.py
+          run_check "security" python scripts/security_check.py
+          run_check "package" python scripts/package_release.py
+          run_check "validate-release" python scripts/validate_release.py
+      - name: Publicar diagnostico
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ci-diagnostic.txt
+          git commit -m "ci: registra diagnostico [skip diagnostic]" || exit 0
+          git push origin HEAD:finalizacao-fiesc
