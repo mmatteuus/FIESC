@@ -39,7 +39,6 @@ class Settings:
     knowledge_path: Path
     metrics_path: Path
     database_path: Path
-    api_key: str | None
     gemini_api_key: str | None
     gemini_model: str
     ollama_base_url: str
@@ -52,7 +51,7 @@ class Settings:
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     artifacts = REPO_ROOT / "artifacts"
-    runtime_default = Path("/tmp/fiesc-runtime") if os.getenv("VERCEL") else REPO_ROOT / "runtime"
+    runtime_default = REPO_ROOT / "runtime"
     runtime = _resolve_path(os.getenv("FIESC_RUNTIME_DIR"), runtime_default)
     source_default = REPO_ROOT.parent / "_privado" / "fontes"
     return Settings(
@@ -65,7 +64,6 @@ def get_settings() -> Settings:
         knowledge_path=artifacts / "knowledge_index.json",
         metrics_path=artifacts / "metrics.json",
         database_path=runtime / "audit.sqlite3",
-        api_key=os.getenv("FIESC_API_KEY") or None,
         gemini_api_key=os.getenv("GEMINI_API_KEY") or None,
         gemini_model=os.getenv("GEMINI_MODEL", "gemini-3.6-flash"),
         ollama_base_url=os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434"),

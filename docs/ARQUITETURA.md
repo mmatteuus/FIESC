@@ -13,12 +13,12 @@ flowchart LR
     F -->|"documentado"| H["RAG por família e página"]
     H --> I["Gemini / Ollama manual / extrativo"]
     I --> J["Validação de esquema e citações"]
-    J --> K["FastAPI + Streamlit"]
+    J --> K["Dashboard Streamlit"]
     G --> K
     K --> L["SQLite sem sensores brutos"]
 ```
 
-A lógica está em `RecommendationService`; API e dashboard não duplicam regras. O gate acontece antes do provedor e garante que indisponibilidade ou prompt malicioso não ampliem a cobertura documental.
+A lógica está em `RecommendationService`; o dashboard não duplica regras. O gate acontece antes do provedor e garante que indisponibilidade ou prompt malicioso não ampliem a cobertura documental.
 
 ## Contratos e falhas seguras
 

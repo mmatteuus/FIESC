@@ -2,7 +2,7 @@
 
 ## D-001 — Python 3.12
 
-Python 3.12 foi escolhido pela compatibilidade com o ecossistema de aprendizado de máquina, FastAPI e Streamlit.
+Python 3.12 foi escolhido pela compatibilidade com o ecossistema de aprendizado de máquina e Streamlit.
 
 ## D-002 — Separação por sessões
 
@@ -22,7 +22,7 @@ A base completa, os documentos oficiais, os anexos pessoais e os segredos perman
 
 ## D-006 — Integridade e exposição
 
-O SHA-256 do artefato é verificado antes da desserialização. A API permanece aberta em desenvolvimento local; quando `FIESC_API_KEY` é definida, o endpoint de recomendação exige `X-API-Key`. Uma exposição externa também requer identidade, limitação de requisições e limite de corpo no gateway.
+O SHA-256 do artefato é verificado antes da desserialização. A aplicação executa localmente por meio do dashboard Streamlit e segredos permanecem fora do repositório; exposição externa futura exigiria identidade, limitação de requisições e gateway.
 
 ## D-007 — Similaridade histórica
 

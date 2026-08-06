@@ -12,6 +12,5 @@
 | Teste independente | `modeling.py` | Sessões disjuntas de treino, seleção e teste em `metrics.json` |
 | Python obrigatório | `pyproject.toml` | Python 3.12, `.venv` e CI |
 | Controle de alucinação | Gate, esquema e fontes | Testes de prompt/citação e integração |
-| API | `api.py` | `/health`, `/ready`, `/model-info`, `/v1/recommendations` |
 | Segurança do pacote | `.gitignore` e `security_check.py` | Varredura de segredos, PII e limite de 5 MB |
 | Entregáveis | Relatório, apresentação e ZIP | PDFs renderizados e manifesto SHA-256 |

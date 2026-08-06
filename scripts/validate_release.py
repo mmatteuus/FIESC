@@ -12,18 +12,15 @@ MAX_BYTES = 5 * 1024 * 1024
 REQUIRED_FILES = {
     "README.md",
     "app/streamlit_app.py",
-    "app_server.py",
     "artifacts/knowledge_index.json",
     "artifacts/model_bundle.joblib",
     "artifacts/model_metadata.json",
     "data/demo/demo_events.json",
-    "public/index.html",
     "scripts/package_release.py",
     "scripts/security_check.py",
     "scripts/validate_release.py",
     "src/fiesc_pm/service.py",
     "tests/test_packaging.py",
-    "vercel.json",
 }
 FORBIDDEN_PARTS = {".git", ".venv", "__pycache__", "runtime", "tmp"}
 

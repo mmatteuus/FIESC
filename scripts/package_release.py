@@ -15,13 +15,11 @@ ROOT_FILES = {
     ".gitignore",
     "Dockerfile",
     "README.md",
-    "app_server.py",
     "pyproject.toml",
     "requirements-app.txt",
     "requirements-dev.txt",
     "requirements-documents.txt",
     "requirements.txt",
-    "vercel.json",
 }
 ALLOWED_ROOTS = {
     ".github",
@@ -30,7 +28,6 @@ ALLOWED_ROOTS = {
     "artifacts",
     "data/demo",
     "docs",
-    "public",
     "scripts",
     "src",
     "tests",

@@ -20,9 +20,7 @@ evento industrial
 
 A mesma regra de negócio atende:
 
-- **interface web** para demonstração;
-- **dashboard Streamlit** para exploração técnica;
-- **API FastAPI** para integração;
+- **dashboard Streamlit** para exploração e demonstração;
 - **scripts de validação** para reproduzir a entrega.
 
 ## Diferenciais demonstráveis
@@ -81,18 +79,6 @@ python -m pip install --no-deps -e .
 python -m pytest
 ```
 
-### Interface web e API
-
-```powershell
-uvicorn fiesc_pm.api:app --host 127.0.0.1 --port 8000
-```
-
-Acesse:
-
-- interface web: `http://127.0.0.1:8000/`;
-- OpenAPI: `http://127.0.0.1:8000/docs`;
-- prontidão: `http://127.0.0.1:8000/ready`.
-
 ### Dashboard Streamlit
 
 ```powershell
@@ -110,36 +96,13 @@ docker build -t fiesc-prescritiva:local .
 docker run --rm -p 8501:8501 fiesc-prescritiva:local
 ```
 
-Para executar a API FastAPI separadamente:
-
-```powershell
-docker build -t fiesc-prescritiva:api .
-docker run --rm -p 8000:8000 fiesc-prescritiva:api uvicorn fiesc_pm.api:app --host 0.0.0.0 --port 8000
-```
-
-### Publicação web na Vercel
-
-A publicação web apresenta cenários e resultados reproduzíveis previamente validados pelo pipeline Python. A inferência real é executada pela API FastAPI, pelo dashboard Streamlit ou pelo pacote local.
-
-A página estática consome `GET /demo-events` e `POST /v1/recommendations` da API publicada (`vercel.json` aponta `app_server.py`). O modo automático usa Gemini quando `GEMINI_API_KEY` está configurada como variável protegida e mantém a contingência extrativa local quando o serviço externo não está disponível.
-
-## Endpoints
-
-- `GET /`: redireciona para a demonstração web.
-- `GET /health`: processo ativo.
-- `GET /ready`: modelo, índice documental e provedores prontos.
-- `GET /demo-events`: seis cenários anonimizados e reproduzíveis.
-- `GET /model-info`: versão, atributos, limiares e hashes.
-- `POST /v1/recommendations`: decisão, similaridade, fontes e orientação prescritiva.
-
-O corpo do POST utiliza um `event` de `data/demo/demo_events.json`, uma pergunta, `provider: "auto"` e `top_k: 3`. No modo automático, Gemini é usado quando `GEMINI_API_KEY` está configurada; caso contrário, a mesma chamada cai para a síntese extrativa citada.
+O contêiner não possui privilégios e registra auditoria em volume efêmero.
 
 ## Variáveis de ambiente
 
 Copie `.env.example` para `.env` somente no ambiente local.
 
 ```text
-FIESC_API_KEY=
 FIESC_RUNTIME_DIR=
 GEMINI_API_KEY=
 GEMINI_MODEL=gemini-3.6-flash
@@ -156,12 +119,10 @@ A chave nunca precisa aparecer em commit, ZIP, comando de terminal ou captura de
 
 ```powershell
 python scripts/configure_demo_env.py
-uvicorn fiesc_pm.api:app --host 127.0.0.1 --port 8000
+streamlit run app/streamlit_app.py
 ```
 
-O script grava somente o arquivo local `.env`, ignorado pelo Git, e não imprime o valor. Confirme a integração em `GET /ready`: o campo `gemini_configured` deve retornar `true`. Na interface, o indicador mostra `Motor online · Gemini` e cada resultado informa o provedor efetivamente utilizado.
-
-Na Vercel ou em outro ambiente de produção, cadastre `GEMINI_API_KEY` como variável de ambiente protegida e faça um novo deploy. Para exposição fora de `localhost`, configure também `FIESC_API_KEY` e envie `X-API-Key` nas chamadas protegidas.
+O script grava somente o arquivo local `.env`, ignorado pelo Git, e não imprime o valor. No dashboard, o indicador mostra `Motor online · Gemini` e cada resultado informa o provedor efetivamente utilizado.
 
 ## Qualidade e segurança
 
@@ -184,7 +145,6 @@ Controles implementados:
 - ausência de chaves no repositório;
 - bloqueio de documentos pessoais e fontes privadas no pacote;
 - usuário sem privilégios no contêiner;
-- cabeçalhos de segurança na publicação web;
 - respostas geradas somente a partir de citações recuperadas;
 - recusa quando a evidência documental é insuficiente.
 
@@ -201,7 +161,7 @@ Saída esperada:
 output/release/Mateus_Ferreira_Lopes_FIESC_02198_Codigo.zip
 ```
 
-O ZIP inclui código, modelo compacto, índice documental, interface, testes e documentação. Não inclui base original, PDFs-fonte, documentos pessoais, chaves, ambiente virtual ou arquivos temporários.
+O ZIP inclui código, modelo compacto, índice documental, dashboard, testes e documentação. Não inclui base original, PDFs-fonte, documentos pessoais, chaves, ambiente virtual ou arquivos temporários.
 
 ## Reconstrução dos artefatos
 
@@ -216,13 +176,12 @@ python scripts/build_demo_events.py
 ## Estrutura
 
 ```text
-src/fiesc_pm/       domínio, ML, RAG, provedores, persistência e API
+src/fiesc_pm/       domínio, ML, RAG, provedores e persistência
 app/                dashboard Streamlit
-public/             demonstração web leve
 artifacts/          modelo, métricas, metadados e índice documental
 data/demo/          seis amostras anonimizadas
 scripts/            treinamento, validação, segurança e empacotamento
-tests/              unidade, API, segurança, integração e interface
+tests/              unidade, segurança, integração e dashboard
 docs/               arquitetura, decisões e rastreabilidade
 ```
 
