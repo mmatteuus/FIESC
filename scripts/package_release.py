@@ -6,7 +6,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "output" / "release" / "Mateus_Ferreira_FIESC_02198_Codigo.zip"
+OUTPUT = ROOT / "output" / "release" / "Mateus_Ferreira_Lopes_FIESC_02198_Codigo.zip"
 MAX_BYTES = 5 * 1024 * 1024
 
 ROOT_FILES = {
@@ -15,14 +15,13 @@ ROOT_FILES = {
     ".gitignore",
     "Dockerfile",
     "README.md",
+    "app_server.py",
     "pyproject.toml",
+    "requirements-app.txt",
     "requirements-dev.txt",
+    "requirements-documents.txt",
     "requirements.txt",
-    "scripts/build_demo_events.py",
-    "scripts/build_knowledge.py",
-    "scripts/security_check.py",
-    "scripts/smoke_test.py",
-    "scripts/train_model.py",
+    "vercel.json",
 }
 ALLOWED_ROOTS = {
     ".github",
@@ -31,12 +30,29 @@ ALLOWED_ROOTS = {
     "artifacts",
     "data/demo",
     "docs",
+    "public",
+    "scripts",
     "src",
     "tests",
 }
 FORBIDDEN_SUFFIXES = {".csv", ".docx", ".pdf", ".env", ".key", ".pem"}
-FORBIDDEN_NAMES = {"banner.csv", "cnh mateus ferreira.pdf", "certificado ensino medio.pdf"}
-EXCLUDED_PARTS = {"__pycache__"}
+FORBIDDEN_NAMES = {
+    "banner.csv",
+    "cnh mateus ferreira.pdf",
+    "certificado ensino medio.pdf",
+    "comprovante_escolaridade_completo_mateus.pdf",
+}
+EXCLUDED_PARTS = {
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pycache__",
+    "output",
+    "runtime",
+    "tmp",
+}
 EXCLUDED_SUFFIXES = {".pyc", ".pyo"}
 
 
@@ -52,31 +68,35 @@ def release_files() -> list[Path]:
     files = [ROOT / name for name in sorted(ROOT_FILES)]
     for relative in sorted(ALLOWED_ROOTS):
         directory = ROOT / relative
-        if directory.exists():
-            files.extend(
-                sorted(
-                    path
-                    for path in directory.rglob("*")
-                    if path.is_file()
-                    and not EXCLUDED_PARTS.intersection(path.relative_to(ROOT).parts)
-                    and not any(part.endswith(".egg-info") for part in path.relative_to(ROOT).parts)
-                    and path.suffix.lower() not in EXCLUDED_SUFFIXES
-                )
+        if not directory.exists():
+            continue
+        files.extend(
+            sorted(
+                path
+                for path in directory.rglob("*")
+                if path.is_file()
+                and not EXCLUDED_PARTS.intersection(path.relative_to(ROOT).parts)
+                and not any(part.endswith(".egg-info") for part in path.relative_to(ROOT).parts)
+                and path.suffix.lower() not in EXCLUDED_SUFFIXES
             )
-    return files
+        )
+    return sorted(set(files))
 
 
 def validate(files: list[Path]) -> None:
     problems: list[str] = []
     for path in files:
         relative = path.relative_to(ROOT)
+        if not path.exists():
+            problems.append(f"Arquivo obrigatorio ausente: {relative}")
+            continue
         if path.name.lower() in FORBIDDEN_NAMES:
             problems.append(f"Arquivo privado: {relative}")
         if path.suffix.lower() in FORBIDDEN_SUFFIXES and path.name != ".env.example":
             problems.append(f"Formato privado proibido: {relative}")
         if path.stat().st_size > MAX_BYTES:
             problems.append(f"Arquivo individual acima de 5 MB: {relative}")
-        if "_privado" in relative.parts or path.name == ".env":
+        if EXCLUDED_PARTS.intersection(relative.parts) or path.name == ".env":
             problems.append(f"Caminho proibido: {relative}")
     if problems:
         raise SystemExit("\n".join(problems))
