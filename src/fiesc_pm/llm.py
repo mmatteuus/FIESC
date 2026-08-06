@@ -100,7 +100,13 @@ class GeminiProvider(LLMProvider):
         if not settings.gemini_api_key:
             raise ValueError("GEMINI_API_KEY nao configurada")
         self.model = settings.gemini_model
-        self.client = genai.Client(api_key=settings.gemini_api_key)
+        self.client = genai.Client(
+            api_key=settings.gemini_api_key,
+            http_options=types.HttpOptions(
+                timeout=60000,
+                retry_options=types.HttpRetryOptions(attempts=1),
+            ),
+        )
 
     def generate(
         self, fault_family: str, question: str, citations: list[Citation]
@@ -112,7 +118,10 @@ class GeminiProvider(LLMProvider):
                 system_instruction=SYSTEM_INSTRUCTION,
                 response_mime_type="application/json",
                 response_schema=RecommendationContent,
-                max_output_tokens=900,
+                max_output_tokens=4096,
+                thinking_config=types.ThinkingConfig(
+                    thinking_level=types.ThinkingLevel.LOW,
+                ),
                 seed=20260804,
             ),
         )
