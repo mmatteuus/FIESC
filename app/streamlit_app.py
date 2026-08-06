@@ -15,36 +15,54 @@ from app.ui_localization import (
     FIELD_GROUPS,
     LANGUAGE_OPTIONS,
     Language,
+    build_event_payload,
+    localized_date_format,
+    localized_datetime_format,
     localized_fault_label,
     localized_field_label,
+    localized_provider_label,
+    localized_scenario_label,
     localized_state_label,
-    preserve_technical_keys,
+    localized_warning,
+    recommended_question,
     translate,
 )
 from fiesc_pm.config import get_settings
-from fiesc_pm.schemas import ProviderName, RecommendationRequest, RecommendationResponse, SensorEvent
+from fiesc_pm.schemas import (
+    ProviderName,
+    RecommendationRequest,
+    RecommendationResponse,
+    SensorEvent,
+)
 from fiesc_pm.service import RecommendationService
 
 LOGGER = logging.getLogger(__name__)
-SCENARIO_KEYS = {
-    "falha_documentada_rolamento": "scenario_bearing",
-    "falha_documentada_desalinhamento": "scenario_misalignment",
-    "sem_documento_rotor_excentrico": "scenario_eccentric",
-    "sem_documento_perda_de_fase": "scenario_phase_loss",
-    "operacao_normal": "scenario_normal",
-    "baixa_confianca": "scenario_low_confidence",
-}
-PROVIDER_KEYS = {"none": "provider_none", "gemini": "provider_gemini", "ollama": "provider_ollama", "extractive": "provider_extractive"}
 
-st.set_page_config(page_title="FIESC | Manutenção prescritiva", page_icon="⚙️", layout="wide")
+
+def current_language() -> Language:
+    selected = st.session_state.get("language")
+    if isinstance(selected, str) and selected in LANGUAGE_OPTIONS:
+        return LANGUAGE_OPTIONS[selected]
+    return DEFAULT_LANGUAGE
+
+
+def clear_response_on_language_change() -> None:
+    st.session_state.pop("response", None)
+
+
+language = current_language()
+st.set_page_config(page_title=translate("page_title", language), page_icon="⚙️", layout="wide")
+
 
 @st.cache_resource
 def load_service() -> RecommendationService:
     return RecommendationService()
 
+
 @st.cache_data
 def load_json(path: Path) -> object:
     return json.loads(path.read_text(encoding="utf-8"))
+
 
 def confidence_chart(value: float, threshold: float, language: Language) -> go.Figure:
     return go.Figure(go.Indicator(
@@ -57,11 +75,14 @@ def confidence_chart(value: float, threshold: float, language: Language) -> go.F
         },
     )).update_layout(height=260, margin={"l": 25, "r": 25, "t": 55, "b": 10})
 
+
 def analyze_event(payload: object, question: str, provider: ProviderName, language: Language) -> None:
     st.session_state.pop("response", None)
     try:
         event = SensorEvent.model_validate(payload)
-        request = RecommendationRequest(event=event, question=question, provider=provider)
+        request = RecommendationRequest(
+            event=event, question=recommended_question(question, language), provider=provider
+        )
         with st.spinner(translate("analyzing", language)):
             st.session_state["response"] = load_service().analyze(request)
     except (json.JSONDecodeError, ValueError, TypeError):
@@ -89,10 +110,9 @@ def render_summary_cards(response: RecommendationResponse, language: Language) -
     first_row = st.columns(2)
     second_row = st.columns(2)
     for column, (label, value) in zip((*first_row, *second_row), cards, strict=True):
-        with column:
-            with st.container(border=True):
-                st.caption(label)
-                st.markdown(f"### {value}")
+        with column, st.container(border=True):
+            st.caption(label)
+            st.markdown(f"### {value}")
 
 def render_event_form(event_payload: dict[str, object], language: Language) -> dict[str, object]:
     edited = dict(event_payload)
@@ -111,8 +131,9 @@ def render_event_form(event_payload: dict[str, object], language: Language) -> d
                     edited[field] = value
                     st.text_input(localized_field_label(field, language), value="" if value is None else str(value), disabled=True, key=f"field_{field}")
                 else:
-                    edited[field] = st.number_input(localized_field_label(field, language), value=float(cast(float | int, value)), format="%.6f", key=f"field_{field}")
-    return preserve_technical_keys(event_payload, edited)
+                    formatted = "%.6g" if field != "rpm" else "%.1f"
+                    edited[field] = st.number_input(localized_field_label(field, language), value=float(cast(float | int, value)), format=formatted, key=f"field_{field}")
+    return build_event_payload(event_payload, edited)
 
 settings = get_settings()
 demos = cast(list[dict[str, object]], load_json(settings.repo_root / "data/demo/demo_events.json"))
@@ -121,11 +142,19 @@ metadata = cast(dict[str, object], load_json(settings.metadata_path))
 demo_by_name = {str(item["name"]): item for item in demos}
 
 with st.sidebar:
-    selected_language_name = st.selectbox("Idioma / Language", list(LANGUAGE_OPTIONS), index=list(LANGUAGE_OPTIONS.values()).index(DEFAULT_LANGUAGE))
-    language = LANGUAGE_OPTIONS[selected_language_name]
+    language_name = st.selectbox(
+        translate("language", language), list(LANGUAGE_OPTIONS),
+        index=list(LANGUAGE_OPTIONS.values()).index(language), key="language",
+        on_change=clear_response_on_language_change,
+    )
+    language = LANGUAGE_OPTIONS[str(language_name)]
     st.header(translate("sidebar_title", language))
-    selected_name = st.selectbox(translate("example", language), list(demo_by_name), format_func=lambda value: translate(SCENARIO_KEYS[value], language))
-    question = st.text_input(translate("question", language), translate("default_question", language), max_chars=500)
+    selected_name = st.selectbox(
+        translate("example", language), list(demo_by_name),
+        format_func=lambda value: localized_scenario_label(value, language),
+        key=f"scenario_{language}",
+    )
+    question = st.text_input(translate("question", language), value=translate("default_question", language), max_chars=500, key=f"question_{language}")
     with st.expander(translate("advanced", language)):
         provider_value = st.selectbox(translate("recommendation_mode", language), ["auto", "gemini", "extractive", "ollama"], format_func=lambda value: translate(f"mode_{value}", language), help=translate("mode_help", language))
     provider = cast(ProviderName, provider_value)
@@ -187,7 +216,7 @@ with diagnosis_tab:
         st.info(translate("run_analysis_diagnosis", language))
     else:
         for warning in response.warnings:
-            st.warning(warning)
+            st.warning(localized_warning(warning, language))
         if response.recommendation:
             st.subheader(translate("suggested_actions", language))
             for index, action in enumerate(response.recommendation.actions, start=1):
@@ -214,7 +243,8 @@ with evidence_tab:
         first.metric(translate("similar_references", language), summary.reference_count)
         period = translate("not_available", language)
         if summary.first_seen and summary.last_seen:
-            period = f"{summary.first_seen:%d/%m/%Y} - {summary.last_seen:%d/%m/%Y}"
+            date_format = localized_date_format(language)
+            period = f"{summary.first_seen:{date_format}} - {summary.last_seen:{date_format}}"
         second.metric(translate("observed_period", language), period)
         third.metric(translate("average_frequency", language), f"{summary.events_per_day:.1f} {translate('per_day', language)}")
         if summary.daily_counts:
@@ -231,7 +261,8 @@ with evidence_tab:
         if response.similar_cases:
             st.subheader(translate("closest_cases", language))
             threshold = float(cast(float | int | str, metrics["novelty_distance_threshold"]))
-            cases = pd.DataFrame([{translate("observed_condition", language): localized_fault_label(case.fault_family, language), translate("date", language): case.created_at.strftime("%d/%m/%Y %H:%M") if case.created_at else "-", "RPM": f"{case.rpm:g}", translate("proximity", language): f"{max(0.0, 1 - case.distance / threshold):.0%}"} for case in response.similar_cases])
+            datetime_format = localized_datetime_format(language)
+            cases = pd.DataFrame([{translate("observed_condition", language): localized_fault_label(case.fault_family, language), translate("date", language): case.created_at.strftime(datetime_format) if case.created_at else "-", "RPM": f"{case.rpm:g}", translate("proximity", language): f"{max(0.0, 1 - case.distance / threshold):.0%}"} for case in response.similar_cases])
             st.dataframe(cases, width="stretch", hide_index=True)
         st.subheader(translate("consulted_documents", language))
         if not response.citations:
@@ -263,4 +294,4 @@ with quality_tab:
     st.write(f"- {translate('limit_human', language)}")
     if response:
         with st.expander(translate("technical_details", language)):
-            st.json({translate("provider", language): translate(PROVIDER_KEYS.get(response.provider, "provider_none"), language), translate("model", language): response.model_version, translate("latency_ms", language): response.latency_ms, translate("analysis_id", language): response.request_id})
+            st.json({translate("provider", language): localized_provider_label(response.provider, language), translate("model", language): response.model_version, translate("latency_ms", language): response.latency_ms, translate("analysis_id", language): response.request_id})
