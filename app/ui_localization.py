@@ -12,6 +12,27 @@ FAULT_KEYS = (
     "misalignment", "normal", "phase_loss", "pulley",
 )
 STATE_KEYS = ("operating", "motor_off", "acceleration")
+STATUS_KEYS = (
+    "supported", "unsupported_documentation", "low_confidence",
+    "normal_operation", "llm_unavailable",
+)
+MODE_KEYS = ("auto", "gemini", "extractive", "ollama")
+PROVIDER_KEYS = {"none": "provider_none", "gemini": "provider_gemini", "ollama": "provider_ollama", "extractive": "provider_extractive"}
+SCENARIO_KEYS = {
+    "falha_documentada_rolamento": "scenario_bearing",
+    "falha_documentada_desalinhamento": "scenario_misalignment",
+    "sem_documento_rotor_excentrico": "scenario_eccentric",
+    "sem_documento_perda_de_fase": "scenario_phase_loss",
+    "operacao_normal": "scenario_normal",
+    "baixa_confianca": "scenario_low_confidence",
+}
+WARNING_KEYS = {
+    "Motor parado: estado definido por regra operacional; o score do modelo não se aplica.": "warning_motor_off",
+    "Inspecao humana necessaria antes de classificar a falha.": "warning_human_inspection",
+    "Nao existe documento cadastrado para esta familia; registrar nova documentacao.": "warning_no_document",
+    "Documento registrado, mas nenhuma evidencia foi recuperada.": "warning_no_evidence",
+    "Serviço de linguagem indisponível; síntese documental utilizada.": "warning_llm_fallback",
+}
 FIELD_KEYS = (
     "id", "created_at", "z_rms_velocity_in_s", "z_rms_velocity_mm_s",
     "temperature_f", "temperature_c", "x_rms_velocity_in_s",
@@ -68,9 +89,14 @@ TRANSLATIONS: dict[Language, dict[str, str]] = {
         "acceleration": "Aceleração", "signal_characteristics": "Características do sinal", "temperature": "Temperatura",
         "supported": "Recomendação liberada", "unsupported_documentation": "Sem documentação para recomendar",
         "low_confidence": "Revisão humana necessária", "normal_operation": "Operação normal", "llm_unavailable": "Evidência indisponível",
-        "scenario_bearing": "Falha em rolamento", "scenario_misalignment": "Desalinhamento", "scenario_eccentric": "Rotor excêntrico sem documentação",
-        "scenario_phase_loss": "Perda de fase sem documentação", "scenario_normal": "Operação normal", "scenario_low_confidence": "Resultado inconclusivo",
-        "provider_none": "Não consultado", "provider_gemini": "Gemini", "provider_ollama": "Modelo local", "provider_extractive": "Síntese documental"
+        "scenario_bearing": "Falha em rolamento", "scenario_misalignment": "Desalinhamento", "scenario_eccentric": "Rotor excêntrico",
+        "scenario_phase_loss": "Perda de fase", "scenario_normal": "Operação normal", "scenario_low_confidence": "Resultado inconclusivo",
+        "provider_none": "Não consultado", "provider_gemini": "Gemini", "provider_ollama": "Modelo local", "provider_extractive": "Síntese documental",
+        "warning_motor_off": "Motor parado: estado definido por regra operacional; o score do modelo não se aplica.",
+        "warning_human_inspection": "Inspeção humana necessária antes de classificar a falha.",
+        "warning_no_document": "Não existe documento cadastrado para esta família; registrar nova documentação.",
+        "warning_no_evidence": "Documento registrado, mas nenhuma evidência foi recuperada.",
+        "warning_llm_fallback": "Serviço de linguagem indisponível; síntese documental utilizada."
     },
     "en": {
         "page_title": "FIESC | Prescriptive maintenance", "title": "Prescriptive maintenance",
@@ -109,9 +135,14 @@ TRANSLATIONS: dict[Language, dict[str, str]] = {
         "signal_characteristics": "Signal characteristics", "temperature": "Temperature", "supported": "Recommendation available",
         "unsupported_documentation": "No documentation available for recommendation", "low_confidence": "Human review required",
         "normal_operation": "Normal operation", "llm_unavailable": "Evidence unavailable", "scenario_bearing": "Bearing fault",
-        "scenario_misalignment": "Misalignment", "scenario_eccentric": "Eccentric rotor without documentation", "scenario_phase_loss": "Phase loss without documentation",
+        "scenario_misalignment": "Misalignment", "scenario_eccentric": "Eccentric rotor", "scenario_phase_loss": "Phase loss",
         "scenario_normal": "Normal operation", "scenario_low_confidence": "Inconclusive result", "provider_none": "Not consulted", "provider_gemini": "Gemini",
-        "provider_ollama": "Local model", "provider_extractive": "Document synthesis"
+        "provider_ollama": "Local model", "provider_extractive": "Document synthesis",
+        "warning_motor_off": "Motor stopped: state defined by operational rule; the model score does not apply.",
+        "warning_human_inspection": "Human inspection is required before classifying the fault.",
+        "warning_no_document": "No document is registered for this family; register new documentation.",
+        "warning_no_evidence": "A document exists, but no evidence was retrieved.",
+        "warning_llm_fallback": "Language service unavailable; document synthesis used."
     }
 }
 
@@ -151,18 +182,60 @@ FIELD_GROUPS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("temperature", ("temperature_c", "temperature_f"))
 )
 
+
 def translate(key: str, language: Language, **values: object) -> str:
-    text = TRANSLATIONS[language][key]
+    text = TRANSLATIONS.get(language, TRANSLATIONS[DEFAULT_LANGUAGE]).get(key, key)
     return text.format(**values) if values else text
+
 
 def localized_fault_label(fault: str, language: Language) -> str:
     return FAULT_LABELS[language].get(fault, fault)
 
+
 def localized_state_label(state: str, language: Language) -> str:
     return STATE_LABELS[language].get(state, state)
+
 
 def localized_field_label(field: str, language: Language) -> str:
     return FIELD_LABELS[language].get(field, field)
 
+
+def localized_provider_label(provider: str, language: Language) -> str:
+    key = PROVIDER_KEYS.get(provider, "provider_none")
+    return translate(key, language)
+
+
+def localized_scenario_label(scenario: str, language: Language) -> str:
+    key = SCENARIO_KEYS.get(scenario)
+    return translate(key, language) if key else scenario
+
+
+def localized_warning(warning: str, language: Language) -> str:
+    key = WARNING_KEYS.get(warning)
+    return translate(key, language) if key else warning
+
+
+def localized_date_format(language: Language) -> str:
+    return "%m/%d/%Y" if language == "en" else "%d/%m/%Y"
+
+
+def localized_datetime_format(language: Language) -> str:
+    return "%m/%d/%Y %H:%M" if language == "en" else "%d/%m/%Y %H:%M"
+
+
 def preserve_technical_keys(original: Mapping[str, object], edited: Mapping[str, object]) -> dict[str, object]:
     return {key: edited.get(key, value) for key, value in original.items()}
+
+
+def build_event_payload(original: Mapping[str, object], edited: Mapping[str, object]) -> dict[str, object]:
+    return preserve_technical_keys(original, edited)
+
+
+MAX_QUESTION_LENGTH = 500
+_ENGLISH_DIRECTIVE = "\nAnswer in English."
+
+
+def recommended_question(question: str, language: Language) -> str:
+    if language != "en" or "in english" in question.lower():
+        return question
+    return f"{question[: MAX_QUESTION_LENGTH - len(_ENGLISH_DIRECTIVE)]}{_ENGLISH_DIRECTIVE}"
