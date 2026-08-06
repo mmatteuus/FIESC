@@ -9,7 +9,8 @@ def test_vercel_runtime_uses_temporary_directory(monkeypatch) -> None:
     get_settings.cache_clear()
     try:
         settings = get_settings()
-        assert settings.runtime_dir == Path("/tmp/fiesc-runtime")
-        assert settings.database_path == Path("/tmp/fiesc-runtime/audit.sqlite3")
+        expected_runtime = Path("/tmp/fiesc-runtime").resolve()
+        assert settings.runtime_dir == expected_runtime
+        assert settings.database_path == expected_runtime / "audit.sqlite3"
     finally:
         get_settings.cache_clear()
