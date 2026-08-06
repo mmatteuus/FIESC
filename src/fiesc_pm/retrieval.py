@@ -17,6 +17,16 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from .schemas import Citation
 
+FAULT_SEARCH_TERMS: dict[str, str] = {
+    "bearing": "rolamento inspecao manutencao lubrificacao folga substituicao",
+    "misalignment": "desalinhamento alinhamento acoplamento base pe manco correcao",
+    "imbalance": "desbalanceamento balanceamento massa vibracao correcao",
+    "belt": "correia tensao alinhamento desgaste inspecao substituicao",
+    "pulley": "polia alinhamento desgaste inspecao substituicao",
+    "cocked_rotor": "rotor inclinado eixo alinhamento inspecao correcao",
+}
+MIN_RELEVANCE_SCORE = 1e-9
+
 DOCUMENT_REGISTRY: dict[str, str | None] = {
     "bearing": "Doc1.pdf",
     "misalignment": "Doc2.pdf",
@@ -173,9 +183,14 @@ class KnowledgeBase:
         ]
         if not allowed:
             return []
-        query_vector = self.vectorizer.transform([query])
+        expanded_query = f"{FAULT_SEARCH_TERMS.get(fault_family, '')} {query}".strip()
+        query_vector = self.vectorizer.transform([expanded_query])
         scores = cosine_similarity(query_vector, self.matrix[allowed]).ravel()
-        order = np.argsort(scores)[::-1][:top_k]
+        order = [
+            int(position)
+            for position in np.argsort(scores)[::-1]
+            if float(scores[int(position)]) > MIN_RELEVANCE_SCORE
+        ][:top_k]
         citations: list[Citation] = []
         for position in order:
             chunk = self.chunks[allowed[int(position)]]
