@@ -14,6 +14,7 @@ def test_web_demo_contains_required_elements() -> None:
     assert "scenario" in html
     assert "aria-live" in html
     assert "mtsferreira.dev" in html
+    assert "innerHTML" not in html
 
 
 def test_root_redirects_to_web_demo() -> None:
