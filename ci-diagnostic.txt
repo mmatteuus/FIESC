@@ -1,0 +1,389 @@
+## install-dev
+Collecting fastapi==0.141.1 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 1))
+  Downloading fastapi-0.141.1-py3-none-any.whl.metadata (27 kB)
+Collecting httpx==0.28.1 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 2))
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting joblib==1.5.3 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 3))
+  Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Collecting numpy==2.4.6 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 4))
+  Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting pandas==2.3.3 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 5))
+  Downloading pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)
+Collecting pydantic==2.13.4 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 6))
+  Downloading pydantic-2.13.4-py3-none-any.whl.metadata (109 kB)
+Collecting python-dotenv==1.2.2 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 7))
+  Downloading python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+Collecting scikit-learn==1.9.0 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 8))
+  Downloading scikit_learn-1.9.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting scipy==1.18.0 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 9))
+  Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting uvicorn==0.52.1 (from -r /home/runner/work/FIESC/FIESC/requirements.txt (line 10))
+  Downloading uvicorn-0.52.1-py3-none-any.whl.metadata (6.6 kB)
+Collecting altair==6.2.2 (from -r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading altair-6.2.2-py3-none-any.whl.metadata (11 kB)
+Collecting google-genai==1.75.0 (from -r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading google_genai-1.75.0-py3-none-any.whl.metadata (52 kB)
+Collecting plotly==6.9.0 (from -r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 4))
+  Downloading plotly-6.9.0-py3-none-any.whl.metadata (9.0 kB)
+Collecting streamlit==1.60.0 (from -r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading streamlit-1.60.0-py3-none-any.whl.metadata (10 kB)
+Collecting pillow==12.3.0 (from -r /home/runner/work/FIESC/FIESC/requirements-documents.txt (line 2))
+  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting pymupdf==1.28.0 (from -r /home/runner/work/FIESC/FIESC/requirements-documents.txt (line 3))
+  Downloading pymupdf-1.28.0-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (26 kB)
+Collecting pytesseract==0.3.13 (from -r /home/runner/work/FIESC/FIESC/requirements-documents.txt (line 4))
+  Downloading pytesseract-0.3.13-py3-none-any.whl.metadata (11 kB)
+Collecting mypy==1.20.2 (from -r requirements-dev.txt (line 3))
+  Downloading mypy-1.20.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting psutil==7.2.2 (from -r requirements-dev.txt (line 4))
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting pytest==9.1.1 (from -r requirements-dev.txt (line 5))
+  Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting pytest-cov==7.1.0 (from -r requirements-dev.txt (line 6))
+  Downloading pytest_cov-7.1.0-py3-none-any.whl.metadata (32 kB)
+Collecting ruff==0.16.1 (from -r requirements-dev.txt (line 7))
+  Downloading ruff-0.16.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (26 kB)
+Collecting starlette>=0.46.0 (from fastapi==0.141.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 1))
+  Downloading starlette-1.4.1-py3-none-any.whl.metadata (6.4 kB)
+Collecting typing-extensions>=4.8.0 (from fastapi==0.141.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 1))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting typing-inspection>=0.4.2 (from fastapi==0.141.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 1))
+  Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+Collecting annotated-doc>=0.0.2 (from fastapi==0.141.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 1))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting anyio (from httpx==0.28.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 2))
+  Downloading anyio-4.14.2-py3-none-any.whl.metadata (4.6 kB)
+Collecting certifi (from httpx==0.28.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 2))
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx==0.28.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 2))
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx==0.28.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 2))
+  Downloading idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+Collecting python-dateutil>=2.8.2 (from pandas==2.3.3->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 5))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas==2.3.3->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 5))
+  Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas==2.3.3->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 5))
+  Downloading tzdata-2026.3-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting annotated-types>=0.6.0 (from pydantic==2.13.4->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 6))
+  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.46.4 (from pydantic==2.13.4->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 6))
+  Downloading pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn==1.9.0->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 8))
+  Downloading narwhals-2.24.0-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn==1.9.0->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 8))
+  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting click>=7.0 (from uvicorn==0.52.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 10))
+  Downloading click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+Collecting h11>=0.8 (from uvicorn==0.52.1->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 10))
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting jinja2 (from altair==6.2.2->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting jsonschema>=3.0 (from altair==6.2.2->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting packaging (from altair==6.2.2->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting google-auth<3.0.0,>=2.48.1 (from google-auth[requests]<3.0.0,>=2.48.1->google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading google_auth-2.56.2-py3-none-any.whl.metadata (6.0 kB)
+Collecting requests<3.0.0,>=2.28.1 (from google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting tenacity<9.2.0,>=8.2.3 (from google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading tenacity-9.1.4-py3-none-any.whl.metadata (1.2 kB)
+Collecting websockets<17.0,>=13.0.0 (from google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading websockets-16.1.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+Collecting distro<2,>=1.7.0 (from google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting sniffio (from google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting blinker<2,>=1.5.0 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting gitpython!=3.1.19,<4,>=3.0.7 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading gitpython-3.1.58-py3-none-any.whl.metadata (13 kB)
+Collecting pydeck<1,>=0.8.0b4 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading pydeck-0.9.3-py2.py3-none-any.whl.metadata (4.2 kB)
+Collecting protobuf<8,>=3.20 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading protobuf-7.35.1-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting pyarrow<25,>=7.0 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading pyarrow-24.0.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting toml<2,>=0.10.1 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting httptools<1,>=0.6.3 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+Collecting python-multipart<1,>=0.0.10 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)
+Collecting itsdangerous<3,>=2.1.2 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting watchdog<7,>=2.1.5 (from streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl.metadata (44 kB)
+Collecting mypy_extensions>=1.0.0 (from mypy==1.20.2->-r requirements-dev.txt (line 3))
+  Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting pathspec>=1.0.0 (from mypy==1.20.2->-r requirements-dev.txt (line 3))
+  Downloading pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+Collecting librt>=0.8.0 (from mypy==1.20.2->-r requirements-dev.txt (line 3))
+  Downloading librt-0.13.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (1.3 kB)
+Collecting iniconfig>=1.0.1 (from pytest==9.1.1->-r requirements-dev.txt (line 5))
+  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest==9.1.1->-r requirements-dev.txt (line 5))
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest==9.1.1->-r requirements-dev.txt (line 5))
+  Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting coverage>=7.10.6 (from coverage[toml]>=7.10.6->pytest-cov==7.1.0->-r requirements-dev.txt (line 6))
+  Downloading coverage-7.15.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (8.6 kB)
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.19,<4,>=3.0.7->streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3.0.7->streamlit==1.60.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 5))
+  Downloading smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting pyasn1-modules>=0.2.1 (from google-auth<3.0.0,>=2.48.1->google-auth[requests]<3.0.0,>=2.48.1->google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting cryptography>=38.0.3 (from google-auth<3.0.0,>=2.48.1->google-auth[requests]<3.0.0,>=2.48.1->google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading cryptography-50.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+Collecting charset_normalizer<4,>=2 (from requests<3.0.0,>=2.28.1->google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading charset_normalizer-3.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (41 kB)
+Collecting urllib3<3,>=1.26 (from requests<3.0.0,>=2.28.1->google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth<3.0.0,>=2.48.1->google-auth[requests]<3.0.0,>=2.48.1->google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth<3.0.0,>=2.48.1->google-auth[requests]<3.0.0,>=2.48.1->google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->altair==6.2.2->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting attrs>=22.2.0 (from jsonschema>=3.0->altair==6.2.2->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=3.0->altair==6.2.2->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=3.0->altair==6.2.2->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema>=3.0->altair==6.2.2->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 2))
+  Downloading rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth<3.0.0,>=2.48.1->google-auth[requests]<3.0.0,>=2.48.1->google-genai==1.75.0->-r /home/runner/work/FIESC/FIESC/requirements-app.txt (line 3))
+  Downloading pyasn1-0.6.4-py3-none-any.whl.metadata (8.4 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas==2.3.3->-r /home/runner/work/FIESC/FIESC/requirements.txt (line 5))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading fastapi-0.141.1-py3-none-any.whl (131 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Downloading numpy-2.4.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 281.2 MB/s  0:00:00
+Downloading pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 151.1 MB/s  0:00:00
+Downloading pydantic-2.13.4-py3-none-any.whl (472 kB)
+Downloading python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+Downloading scikit_learn-1.9.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 234.8 MB/s  0:00:00
+Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 228.0 MB/s  0:00:00
+Downloading uvicorn-0.52.1-py3-none-any.whl (79 kB)
+Downloading altair-6.2.2-py3-none-any.whl (797 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 797.6/797.6 kB 140.9 MB/s  0:00:00
+Downloading google_genai-1.75.0-py3-none-any.whl (793 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 793.7/793.7 kB 154.1 MB/s  0:00:00
+Downloading plotly-6.9.0-py3-none-any.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 348.9 MB/s  0:00:00
+Downloading streamlit-1.60.0-py3-none-any.whl (10.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 82.2 MB/s  0:00:00
+Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 165.0 MB/s  0:00:00
+Downloading pymupdf-1.28.0-cp310-abi3-manylinux_2_28_x86_64.whl (25.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.7/25.7 MB 104.3 MB/s  0:00:00
+Downloading pytesseract-0.3.13-py3-none-any.whl (14 kB)
+Downloading mypy-1.20.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (14.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.7/14.7 MB 83.0 MB/s  0:00:00
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+Downloading pytest_cov-7.1.0-py3-none-any.whl (22 kB)
+Downloading ruff-0.16.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.5/11.5 MB 269.0 MB/s  0:00:00
+Downloading pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 276.8 MB/s  0:00:00
+Downloading anyio-4.14.2-py3-none-any.whl (125 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading click-8.4.2-py3-none-any.whl (119 kB)
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Downloading gitpython-3.1.58-py3-none-any.whl (220 kB)
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+Downloading google_auth-2.56.2-py3-none-any.whl (258 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (523 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading protobuf-7.35.1-cp310-abi3-manylinux2014_x86_64.whl (327 kB)
+Downloading pyarrow-24.0.0-cp312-cp312-manylinux_2_28_x86_64.whl (48.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.9/48.9 MB 261.8 MB/s  0:00:00
+Downloading pydeck-0.9.3-py2.py3-none-any.whl (11.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.4/11.4 MB 128.3 MB/s  0:00:00
+Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (224 kB)
+Downloading idna-3.18-py3-none-any.whl (65 kB)
+Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+Downloading starlette-1.4.1-py3-none-any.whl (74 kB)
+Downloading tenacity-9.1.4-py3-none-any.whl (28 kB)
+Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl (79 kB)
+Downloading websockets-16.1.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (187 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading coverage-7.15.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (257 kB)
+Downloading cryptography-50.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 348.0 MB/s  0:00:00
+Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading librt-0.13.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (531 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 531.8/531.8 kB 111.7 MB/s  0:00:00
+Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Downloading narwhals-2.24.0-py3-none-any.whl (461 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pathspec-1.1.1-py3-none-any.whl (57 kB)
+Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+Downloading pyasn1-0.6.4-py3-none-any.whl (84 kB)
+Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 105.1 MB/s  0:00:00
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (366 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+Downloading tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Installing collected packages: pytz, websockets, watchdog, urllib3, tzdata, typing-extensions, toml, threadpoolctl, tenacity, sniffio, smmap, six, ruff, rpds-py, python-multipart, python-dotenv, pymupdf, pygments, pycparser, pyasn1, pyarrow, psutil, protobuf, pluggy, pillow, pathspec, packaging, numpy, narwhals, mypy_extensions, MarkupSafe, librt, joblib, itsdangerous, iniconfig, idna, httptools, h11, distro, coverage, click, charset_normalizer, certifi, blinker, attrs, annotated-types, annotated-doc, uvicorn, typing-inspection, scipy, requests, referencing, python-dateutil, pytest, pytesseract, pydantic-core, pyasn1-modules, plotly, mypy, jinja2, httpcore, gitdb, cffi, anyio, starlette, scikit-learn, pytest-cov, pydeck, pydantic, pandas, jsonschema-specifications, httpx, gitpython, cryptography, jsonschema, google-auth, fastapi, altair, streamlit, google-genai
+
+Successfully installed MarkupSafe-3.0.3 altair-6.2.2 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.14.2 attrs-26.1.0 blinker-1.9.0 certifi-2026.7.22 cffi-2.1.1 charset_normalizer-3.4.9 click-8.4.2 coverage-7.15.3 cryptography-50.0.0 distro-1.9.0 fastapi-0.141.1 gitdb-4.0.12 gitpython-3.1.58 google-auth-2.56.2 google-genai-1.75.0 h11-0.16.0 httpcore-1.0.9 httptools-0.8.0 httpx-0.28.1 idna-3.18 iniconfig-2.3.0 itsdangerous-2.2.0 jinja2-3.1.6 joblib-1.5.3 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 librt-0.13.0 mypy-1.20.2 mypy_extensions-1.1.0 narwhals-2.24.0 numpy-2.4.6 packaging-26.3 pandas-2.3.3 pathspec-1.1.1 pillow-12.3.0 plotly-6.9.0 pluggy-1.6.0 protobuf-7.35.1 psutil-7.2.2 pyarrow-24.0.0 pyasn1-0.6.4 pyasn1-modules-0.4.2 pycparser-3.0 pydantic-2.13.4 pydantic-core-2.46.4 pydeck-0.9.3 pygments-2.20.0 pymupdf-1.28.0 pytesseract-0.3.13 pytest-9.1.1 pytest-cov-7.1.0 python-dateutil-2.9.0.post0 python-dotenv-1.2.2 python-multipart-0.0.32 pytz-2026.3.post1 referencing-0.37.0 requests-2.34.2 rpds-py-2026.6.3 ruff-0.16.1 scikit-learn-1.9.0 scipy-1.18.0 six-1.17.0 smmap-5.0.3 sniffio-1.3.1 starlette-1.4.1 streamlit-1.60.0 tenacity-9.1.4 threadpoolctl-3.6.0 toml-0.10.2 typing-extensions-4.16.0 typing-inspection-0.4.2 tzdata-2026.3 urllib3-2.7.0 uvicorn-0.52.1 watchdog-6.0.0 websockets-16.1.1
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+EXIT_CODE=0
+
+## install-project
+Obtaining file:///home/runner/work/FIESC/FIESC
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: fiesc-manutencao-prescritiva
+  Building editable for fiesc-manutencao-prescritiva (pyproject.toml): started
+  Building editable for fiesc-manutencao-prescritiva (pyproject.toml): finished with status 'done'
+  Created wheel for fiesc-manutencao-prescritiva: filename=fiesc_manutencao_prescritiva-1.1.0-0.editable-py3-none-any.whl size=4964 sha256=1c6cd3158fc2acd179c7243dc3648ffe31bc4db139b616595f5a1b681cdd5b2a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-2vve7lpl/wheels/61/7e/37/9e437b36cbe4ea8a620612ae8771ed2c6905b01295b5142ba1
+Successfully built fiesc-manutencao-prescritiva
+Installing collected packages: fiesc-manutencao-prescritiva
+Successfully installed fiesc-manutencao-prescritiva-1.1.0
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+EXIT_CODE=0
+
+## ruff
+All checks passed!
+EXIT_CODE=0
+
+## mypy
+src/fiesc_pm/api.py:58: error: "Settings" has no attribute "root_dir"  [attr-defined]
+Found 1 error in 1 file (checked 35 source files)
+EXIT_CODE=1
+
+## pytest
+..................................                                       [100%]
+34 passed, 1 warning in 4.59s
+EXIT_CODE=0
+
+## smoke
+[
+  {
+    "name": "falha_documentada_rolamento",
+    "expected": "supported",
+    "actual": "supported",
+    "fault": "bearing",
+    "provider": "extractive",
+    "citations": 3,
+    "latency_ms": 52.84,
+    "passed": true
+  },
+  {
+    "name": "falha_documentada_desalinhamento",
+    "expected": "supported",
+    "actual": "supported",
+    "fault": "misalignment",
+    "provider": "extractive",
+    "citations": 3,
+    "latency_ms": 20.62,
+    "passed": true
+  },
+  {
+    "name": "sem_documento_rotor_excentrico",
+    "expected": "unsupported_documentation",
+    "actual": "unsupported_documentation",
+    "fault": "eccentric_rotor",
+    "provider": "none",
+    "citations": 0,
+    "latency_ms": 19.02,
+    "passed": true
+  },
+  {
+    "name": "sem_documento_perda_de_fase",
+    "expected": "unsupported_documentation",
+    "actual": "unsupported_documentation",
+    "fault": "phase_loss",
+    "provider": "none",
+    "citations": 0,
+    "latency_ms": 17.89,
+    "passed": true
+  },
+  {
+    "name": "operacao_normal",
+    "expected": "normal_operation",
+    "actual": "normal_operation",
+    "fault": "normal",
+    "provider": "none",
+    "citations": 0,
+    "latency_ms": 17.78,
+    "passed": true
+  },
+  {
+    "name": "baixa_confianca",
+    "expected": "low_confidence",
+    "actual": "low_confidence",
+    "fault": "bearing",
+    "provider": "none",
+    "citations": 0,
+    "latency_ms": 17.66,
+    "passed": true
+  }
+]
+EXIT_CODE=0
+
+## security
+Security check passed: 61 files checked
+EXIT_CODE=0
+
+## package
+{
+  "file": "Mateus_Ferreira_Lopes_FIESC_02198_Codigo.zip",
+  "bytes": 2526991,
+  "sha256": "d760b585aa583ac394cab5ae06022c804810da52e0a5bdca19a935d6cd870c7f",
+  "entries": 60
+}
+EXIT_CODE=0
+
+## validate-release
+Traceback (most recent call last):
+  File "/home/runner/work/FIESC/FIESC/scripts/validate_release.py", line 8, in <module>
+    from scripts.package_release import MAX_BYTES, OUTPUT
+ModuleNotFoundError: No module named 'scripts'
+EXIT_CODE=1
+
