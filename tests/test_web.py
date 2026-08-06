@@ -12,6 +12,9 @@ def test_web_demo_contains_required_elements() -> None:
     assert "/v1/recommendations" in html
     assert "/demo-events" in html
     assert "scenario" in html
+    assert "provider:'auto'" in html
+    assert "gemini_configured" in html
+    assert 'id="provider"' in html
     assert "aria-live" in html
     assert "mtsferreira.dev" in html
     assert "innerHTML" not in html
