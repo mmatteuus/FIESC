@@ -122,7 +122,7 @@ class RecommendationService:
         else:
             citations = self.knowledge.retrieve(
                 predicted_fault,
-                f"{predicted_fault}. {request.question}",
+                request.question,
                 top_k=request.top_k,
             )
             if not citations:

@@ -13,8 +13,8 @@ RUN groupadd --system fiesc \
     && mkdir -p /tmp/fiesc-runtime \
     && chown fiesc:fiesc /tmp/fiesc-runtime
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt requirements-app.txt ./
+RUN pip install --no-cache-dir -r requirements-app.txt
 
 COPY pyproject.toml README.md ./
 COPY src ./src

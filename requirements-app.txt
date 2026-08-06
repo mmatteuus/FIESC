@@ -1,0 +1,5 @@
+-r requirements.txt
+altair==6.2.2
+google-genai==1.75.0
+plotly==6.9.0
+streamlit==1.60.0

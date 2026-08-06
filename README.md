@@ -1,65 +1,131 @@
 # FIESC 02198/2026 — Manutenção Prescritiva Auditável
 
-Solução desenvolvida para o case prático de Pessoa Desenvolvedora Full Stack Pleno — IA/Python. O projeto transforma sinais de vibração, temperatura e rotação em uma decisão rastreável: classifica a condição, compara eventos históricos, consulta a documentação disponível e se abstém quando não há evidência suficiente.
+Solução desenvolvida para o estudo de caso da vaga **Desenvolvedor Full Stack - Pleno - IA e Python**. O projeto transforma sinais de vibração, temperatura e rotação em uma decisão rastreável: classifica a condição, compara eventos históricos, consulta a documentação técnica disponível e se abstém quando não há evidência suficiente.
 
-> Este sistema apoia a decisão. Nenhuma saída substitui inspeção, bloqueio e etiquetagem, procedimento do fabricante ou aprovação de um profissional qualificado.
+> O sistema apoia a decisão. Nenhuma saída substitui inspeção, bloqueio e etiquetagem, procedimento do fabricante ou aprovação de profissional qualificado.
+
+## Visão geral
+
+```text
+evento industrial
+  → validação e preparação de 30 atributos
+  → classificação da condição
+  → confiança e detecção de novidade
+  → comparação com eventos históricos
+  → verificação de cobertura documental
+  → recuperação de trechos por família e página
+  → recomendação citada ou abstenção segura
+  → registro de auditoria
+```
+
+A mesma regra de negócio atende:
+
+- **interface web** para demonstração;
+- **dashboard Streamlit** para exploração técnica;
+- **API FastAPI** para integração;
+- **scripts de validação** para reproduzir a entrega.
 
 ## Diferenciais demonstráveis
 
 - 166.796 registros e 26 colunas auditados; 151 rótulos brutos consolidados em 10 famílias.
-- Validação por sessões de aquisição, com bloqueio explícito de duplicatas entre treino e validação.
+- Validação por sessões de aquisição, evitando duplicatas entre treino e validação.
 - `id`, `created_at`, Fahrenheit e polegadas/s excluídos do modelo para reduzir vazamento e redundância.
-- Quatro abordagens comparadas: baseline, regressão logística, Random Forest e HistGradientBoosting.
-- RAG por família e página, com citações verificáveis e OCR do Doc1 em português/inglês.
-- Bloqueio anterior ao modelo de linguagem: classe sem documento, baixa confiança, novidade ou operação normal interrompe o fluxo.
-- Gemini como principal; Ollama apenas manual após benchmark local; modo extrativo sempre disponível.
-- Uma única regra de negócio atende FastAPI e Streamlit, com auditoria SQLite sem armazenar os sensores brutos.
+- Baseline, regressão logística, Random Forest e HistGradientBoosting comparados.
+- RAG por família, documento e página, com citações verificáveis.
+- Expansão de consulta em português e descarte de resultados com relevância zero.
+- Bloqueio anterior à geração da resposta: classe sem documento, baixa confiança, novidade ou operação normal interrompe o fluxo.
+- Modo extrativo local sempre disponível; provedor generativo é opcional.
+- Auditoria SQLite sem armazenar os sensores brutos completos.
+- Pacote final validado automaticamente e limitado a 5 MB.
 
-## Resultado honesto do modelo
+## Resultado do modelo
 
-O modelo selecionado foi o HistGradientBoosting. No conjunto de teste independente por sessões, alcançou macro F1 **0,415**, acurácia balanceada **0,464** e acurácia **0,514**. Na seleção, ficou a menos de 0,004 do Random Forest, mas ocupa **1,88 MB** contra 28,24 MB. Uma divisão aleatória chegou a macro F1 0,829; esse valor aparece apenas como diagnóstico, pois superestima a generalização ao misturar contextos semelhantes.
+O modelo selecionado foi o **HistGradientBoosting**. No conjunto de teste independente por sessões, alcançou:
 
-## Fluxo de segurança
+- macro F1: **0,415**;
+- acurácia balanceada: **0,464**;
+- acurácia: **0,514**;
+- artefato compactado: aproximadamente **1,88 MB**.
 
-```text
-evento → validação → 30 atributos → classificação → confiança/novidade
-      → bloqueio de cobertura documental → recuperação por família/página
-      → Gemini | Ollama manual | resposta extrativa → validação de citações
-```
+Uma divisão aleatória atingiu macro F1 0,829, mas é apresentada apenas como diagnóstico, pois mistura contextos semelhantes e superestima a generalização. A etapa de seleção agrupada não contém registros da família `pulley`; essa limitação está registrada nos artefatos e deve ser considerada na evolução do modelo.
 
-Famílias documentadas: rolamentos, desalinhamento, desbalanceamento, correias, polias e rotor inclinado. Rotor excêntrico, ventilador e perda de fase são deliberadamente recusados. Operação normal também não gera recomendação.
+## Famílias documentadas e política de abstenção
 
-## Execução local no Windows
+Documentação disponível para:
 
-Pré-requisitos: Python 3.12 e, apenas para reconstruir o índice, Tesseract com `por` e `eng`.
+- rolamento;
+- desalinhamento;
+- desbalanceamento;
+- correia;
+- polia;
+- rotor inclinado.
+
+Rotor excêntrico, ventilador e perda de fase são deliberadamente recusados por falta de documentação específica. Operação normal não gera recomendação corretiva.
+
+## Execução local
+
+Pré-requisitos:
+
+- Python 3.12;
+- Docker, opcional;
+- Tesseract apenas para reconstruir o índice documental a partir dos PDFs originais.
+
+### Instalação completa para desenvolvimento
 
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
 python -m pip install -r requirements-dev.txt
 python -m pip install --no-deps -e .
-pytest
+python -m pytest
 ```
 
-API:
+### Interface web e API
 
 ```powershell
 uvicorn fiesc_pm.api:app --host 127.0.0.1 --port 8000
 ```
 
-Abra `http://127.0.0.1:8000/docs` para o OpenAPI. Dashboard:
+Acesse:
+
+- interface web: `http://127.0.0.1:8000/`;
+- OpenAPI: `http://127.0.0.1:8000/docs`;
+- prontidão: `http://127.0.0.1:8000/ready`.
+
+### Dashboard Streamlit
 
 ```powershell
 streamlit run app/streamlit_app.py
 ```
 
-O dashboard abre em `http://127.0.0.1:8501` e contém seis cenários reproduzíveis, incluindo falha documentada, classe sem documento, baixa confiança, operação normal e contingência do provedor.
+Acesse `http://127.0.0.1:8501`.
+
+### Docker
+
+```powershell
+docker build -t fiesc-prescritiva:local .
+docker run --rm -p 8501:8501 fiesc-prescritiva:local
+```
+
+## Endpoints
+
+- `GET /`: redireciona para a demonstração web.
+- `GET /health`: processo ativo.
+- `GET /ready`: modelo, índice documental e provedores prontos.
+- `GET /demo-events`: seis cenários anonimizados e reproduzíveis.
+- `GET /model-info`: versão, atributos, limiares e hashes.
+- `POST /v1/recommendations`: decisão, similaridade, fontes e orientação prescritiva.
+
+O corpo do POST utiliza um `event` de `data/demo/demo_events.json`, uma pergunta, `provider: "extractive"` e `top_k: 3`.
 
 ## Variáveis de ambiente
 
-Copie `.env.example` para `.env` somente localmente. Nunca versionar a chave.
+Copie `.env.example` para `.env` somente no ambiente local.
 
 ```text
+FIESC_API_KEY=
+FIESC_RUNTIME_DIR=
 GEMINI_API_KEY=
 GEMINI_MODEL=gemini-3.6-flash
 ENABLE_OLLAMA_FALLBACK=false
@@ -67,22 +133,51 @@ OLLAMA_BASE_URL=http://127.0.0.1:11434
 OLLAMA_MODEL=qwen3:1.7b
 ```
 
-O modo `auto` tenta Gemini se uma chave estiver configurada; em qualquer falha, retorna uma síntese extrativa baseada nas mesmas citações. O Ollama permanece opcional porque não atingiu o limite local de 60 segundos.
+Sem chave externa, a aplicação funciona no modo extrativo e mantém as citações documentais. Para exposição fora de `localhost`, configure `FIESC_API_KEY` e envie `X-API-Key` nas chamadas protegidas.
 
-Para exposição fora de `localhost`, defina `FIESC_API_KEY` e envie o valor no cabeçalho `X-API-Key`. Em produção, autenticação corporativa, rate limiting e limite de corpo devem ser aplicados também no gateway reverso.
+## Qualidade e segurança
 
-## Endpoints
+```powershell
+python -m ruff check .
+python -m mypy src app scripts tests
+python -m pytest
+python scripts/smoke_test.py
+python scripts/security_check.py
+python scripts/package_release.py
+python scripts/validate_release.py
+docker build -t fiesc-prescritiva:test .
+```
 
-- `GET /health`: processo ativo.
-- `GET /ready`: modelo, base documental e provedores prontos.
-- `GET /model-info`: versão, atributos, limiares, hashes e auditoria da fonte.
-- `POST /v1/recommendations`: decisão, eventos semelhantes, recorrência temporal, contexto de RPM e fontes.
+A CI repete lint, tipagem, testes, cenários ponta a ponta, verificação de segurança, geração do ZIP, validação isolada do pacote e build do contêiner.
 
-Exemplo de corpo: use o campo `event` de `data/demo/demo_events.json`, acrescente `provider: "extractive"` e `top_k: 3`.
+Controles implementados:
 
-## Reconstrução controlada
+- verificação SHA-256 antes de desserializar o modelo;
+- ausência de chaves no repositório;
+- bloqueio de documentos pessoais e fontes privadas no pacote;
+- usuário sem privilégios no contêiner;
+- cabeçalhos de segurança na publicação web;
+- respostas geradas somente a partir de citações recuperadas;
+- recusa quando a evidência documental é insuficiente.
 
-Os comandos abaixo dependem dos arquivos privados em `../_privado/fontes`, que não integram o repositório:
+## Empacotamento da entrega
+
+```powershell
+python scripts/package_release.py
+python scripts/validate_release.py
+```
+
+Saída esperada:
+
+```text
+output/release/Mateus_Ferreira_Lopes_FIESC_02198_Codigo.zip
+```
+
+O ZIP inclui código, modelo compacto, índice documental, interface, testes e documentação. Não inclui base original, PDFs-fonte, documentos pessoais, chaves, ambiente virtual ou arquivos temporários.
+
+## Reconstrução dos artefatos
+
+Os comandos abaixo dependem das fontes privadas em `../_privado/fontes`, que não integram o repositório:
 
 ```powershell
 python scripts/train_model.py
@@ -90,41 +185,26 @@ python scripts/build_knowledge.py
 python scripts/build_demo_events.py
 ```
 
-Os artefatos compactos e as amostras demonstrativas anonimizadas são versionáveis; a base completa e os PDFs-fonte não são.
-
-## Qualidade e segurança
-
-```powershell
-ruff check .
-mypy src app scripts tests
-pytest
-python scripts/smoke_test.py
-python scripts/security_check.py
-docker build -t fiesc-prescritiva:test .
-```
-
-O verificador impede arquivos privados conhecidos, segredos e itens rastreados acima de 5 MB. A CI está configurada para repetir tipagem, lint, testes, controle de segurança e build do contêiner.
-
-Antes de desserializar o estimador, o serviço compara seu SHA-256 com o hash registrado nos metadados. O contêiner executa a aplicação com usuário sem privilégios.
-
 ## Estrutura
 
 ```text
 src/fiesc_pm/       domínio, ML, RAG, provedores, persistência e API
 app/                dashboard Streamlit
-artifacts/          modelo, métricas, metadados e índice documental compactos
-data/demo/          seis amostras anonimizadas para demonstração
-scripts/            treinamento, indexação, smoke test, segurança e empacotamento
-tests/              unidade, segurança, API, integração e interface
+public/             demonstração web leve
+artifacts/          modelo, métricas, metadados e índice documental
+data/demo/          seis amostras anonimizadas
+scripts/            treinamento, validação, segurança e empacotamento
+tests/              unidade, API, segurança, integração e interface
 docs/               arquitetura, decisões e rastreabilidade
 ```
 
 ## Limitações conhecidas
 
-- Métricas por sessões são moderadas e demonstram a dificuldade real de generalizar entre campanhas.
+- Métricas por sessões são moderadas e representam a dificuldade real de generalização entre campanhas.
 - Confiança de classificação não equivale a probabilidade calibrada de falha física.
-- A base não contém todas as condições de campo, máquinas ou regimes industriais.
-- A recuperação textual é TF-IDF local para reduzir dependências e manter rastreabilidade; embeddings podem ser avaliados em produção.
-- O fluxo industrial proposto exige autenticação, catálogo de ativos, observabilidade, aprovação humana e monitoramento de drift.
+- A base não representa todas as máquinas, condições e regimes industriais.
+- A seleção agrupada não contém amostras da família polia.
+- A recuperação textual utiliza TF-IDF local para manter rastreabilidade e baixo consumo.
+- Uso industrial exige autenticação corporativa, catálogo de ativos, monitoramento de drift, observabilidade e aprovação humana.
 
 Consulte [Arquitetura](docs/ARQUITETURA.md), [Decisões](docs/DECISIONS.md) e [Rastreabilidade](docs/TRACEABILITY.md).
