@@ -5,7 +5,9 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from scripts.package_release import MAX_BYTES, OUTPUT
+ROOT = Path(__file__).resolve().parents[1]
+OUTPUT = ROOT / "output" / "release" / "Mateus_Ferreira_Lopes_FIESC_02198_Codigo.zip"
+MAX_BYTES = 5 * 1024 * 1024
 
 REQUIRED_FILES = {
     "README.md",
@@ -18,6 +20,7 @@ REQUIRED_FILES = {
     "public/index.html",
     "scripts/package_release.py",
     "scripts/security_check.py",
+    "scripts/validate_release.py",
     "src/fiesc_pm/service.py",
     "tests/test_packaging.py",
     "vercel.json",

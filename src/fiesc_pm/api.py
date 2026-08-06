@@ -6,6 +6,7 @@ from functools import lru_cache
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, Header, HTTPException
+from fastapi.responses import RedirectResponse
 
 from .config import get_settings
 from .schemas import RecommendationRequest, RecommendationResponse
@@ -27,6 +28,11 @@ def require_api_key(x_api_key: Annotated[str | None, Header()] = None) -> None:
     expected = get_settings().api_key
     if expected and (not x_api_key or not secrets.compare_digest(expected, x_api_key)):
         raise HTTPException(status_code=401, detail="API key ausente ou invalida")
+
+
+@app.get("/", include_in_schema=False)
+def web_demo() -> RedirectResponse:
+    return RedirectResponse(url="/index.html", status_code=307)
 
 
 @app.get("/health")
@@ -55,7 +61,7 @@ def ready() -> dict[str, object]:
 @app.get("/demo-events")
 def demo_events() -> list[dict[str, object]]:
     settings = get_settings()
-    path = settings.root_dir / "data" / "demo" / "demo_events.json"
+    path = settings.repo_root / "data" / "demo" / "demo_events.json"
     if not path.exists():
         raise HTTPException(status_code=503, detail="Cenarios demonstrativos ausentes")
     payload = json.loads(path.read_text(encoding="utf-8"))
